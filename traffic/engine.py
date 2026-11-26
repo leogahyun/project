@@ -90,6 +90,7 @@ class Simulation:
         self.queues = (0, 0)
         self.last_action = None
         self.decisions = [] if trace else None
+        self.green_durations = [] if trace else None
 
     def step(self, arrivals, speeds):
         for lane_id, number in arrivals:
@@ -103,6 +104,8 @@ class Simulation:
             queues = self._queues()
             state = (*queues, self.signal.group, self.signal.elapsed // TICKS)
             action = self.policy.decide(state, allowed)
+            if action == 0 and self.green_durations is not None:
+                self.record_green()
             self.signal.request(action)
             self.last_action = (self.tick, action, "policy")
             if self.decisions is not None:
@@ -118,11 +121,18 @@ class Simulation:
         self.total_wait += waiting
         self.queues = self._queues()
         self.policy.observe(-waiting * DT)
+        if (self.green_durations is not None and self.signal.phase == "green"
+                and self.signal.elapsed + 1 == self.signal.settings.maximum * TICKS):
+            self.record_green(1)
         self.signal.advance()
         self.tick += 1
         if self.signal.closed:
             self.last_action = (self.tick, 0, "maximum")
             self.signal.closed = False
+
+    def record_green(self, extra_tick=0):
+        self.green_durations.append({"group": self.signal.group,
+                                     "seconds": (self.signal.elapsed + extra_tick) * DT})
 
     def _queues(self):
         groups = [0, 0]

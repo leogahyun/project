@@ -26,12 +26,12 @@ def parser():
     result = argparse.ArgumentParser(description="서울 교통 신호 시뮬레이터")
     result.add_argument("command", nargs="?", choices=("gui", "train", "evaluate"), default="gui")
     result.add_argument("--site", choices=[r["site"] for r in districts() if r.get("site")],
-                        default="seolleung")
+                        default=None)
     result.add_argument("--scenario", help="shift, morning, day, evening 등 지역별 시나리오 ID")
     result.add_argument("--seed", type=int, default=2026)
     result.add_argument("--duration", type=positive, default=240, help="실험 시간(초)")
     result.add_argument("--mode", choices=("auto", "live", "offline", "synthetic"), default="auto")
-    result.add_argument("--adaptive", action="store_true", help="상시 조회 및 변화 감지 후 추가 학습")
+    result.add_argument("--adaptive", action="store_true", help="TOPIS 교통량 변화 감시 및 추가 학습")
     result.add_argument("--change-percent", type=multiplier, default=20)
     result.add_argument("--adaptive-episodes", type=positive, default=24)
     result.add_argument("--poll-seconds", type=positive, default=60)
@@ -60,8 +60,14 @@ def main():
         if args.adaptive:
             if args.command != "gui" or args.mode not in ("live", "auto") or args.recording or args.screenshot:
                 raise ValueError("--adaptive는 TOPIS 라이브 창에서 사용합니다.")
+            from traffic.volume import SITE_VOLUME
+            args.site = args.site or "taereung"
+            if args.site not in SITE_VOLUME:
+                raise ValueError("상시 교통량 모드는 화랑대역 D-10 관측소가 매핑된 태릉입구역을 지원합니다.")
+            if args.scenario:
+                raise ValueError("상시 교통량 모드에는 시나리오를 지정하지 않습니다.")
             args.speed = 1
-        site = load_site(args.site)
+        site = load_site(args.site or "seolleung")
         if args.scenario and args.scenario not in site.scenarios:
             raise ValueError(f"가능한 시나리오: {', '.join(site.scenarios)}")
         if args.command == "train":

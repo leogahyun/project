@@ -1,6 +1,6 @@
 """Pygame 지도, 시연 제어, 관측과 실험 결과."""
 from dataclasses import asdict
-from datetime import datetime
+from datetime import datetime, timedelta
 from functools import lru_cache
 import math
 import os
@@ -13,9 +13,10 @@ from .adaptive import AdaptiveTraining
 from .config import DT, ROOT, TICKS, districts, load_site, read_json, write_json
 from .engine import Simulation
 from .experiment import METRIC_BASIS
-from .observations import KST, LABELS, LivePoller, parse_time
+from .observations import KST, LABELS, LivePoller, ObservationFeed, parse_time
 from .policy import FixedPolicy, QPolicy, load_model
 from .scenario import Scenario
+from .volume import SITE_VOLUME, live_arrivals, rates_for
 
 SIZE = (1280, 854)
 BG = "#eef2f7"
@@ -154,18 +155,21 @@ class Demo:
         recording = self.args.recording if site.id == self.record_site else None
         live_enabled = self.args.mode in ("auto", "live") and not recording
         compression = self.args.recording_compression
-        if not recording and self.args.mode != "synthetic" and site.archive and scenario_name == "shift":
+        if (not self.args.adaptive and not recording and self.args.mode != "synthetic"
+                and site.archive and scenario_name == "shift"):
             recording = ROOT / site.archive["path"]
             compression = site.archive["compression"] * max(1, 240 / self.args.duration)
         scenario = Scenario(site, scenario_name, self.args.seed, duration=self.args.duration,
                             recording=recording, spacing=compression)
         if not self.site or self.site.id != site.id:
             self.close()
-            self.poller = (LivePoller(site, self.args.poll_seconds, ROOT / "runtime/logs")
+            volume_mapping = SITE_VOLUME[site.id] if self.args.adaptive else None
+            self.poller = (LivePoller(site, self.args.poll_seconds, ROOT / "runtime/logs",
+                                      volume_mapping=volume_mapping)
                            if live_enabled else None)
         training = None
         if self.args.adaptive:
-            directory = ROOT / "runtime/adaptive" / site.id / scenario_name
+            directory = ROOT / "runtime/adaptive" / site.id / "volume"
             saved = directory / "accepted.json"
             if saved.exists():
                 model = load_model(saved, site.id)
@@ -179,7 +183,9 @@ class Demo:
         self.reset()
 
     def reset(self):
-        self.feed = self.scenario.feed(self.poller, max(180, self.args.poll_seconds * 3))
+        stale_after = max(180, self.args.poll_seconds * 3)
+        self.feed = (ObservationFeed((), self.poller, stale_after) if self.training
+                     else self.scenario.feed(self.poller, stale_after))
         if self.poller and hasattr(self, "observations"):
             mapped = {a.id: a.link_id for a in self.site.approaches if a.link_id}
             self.feed.live = {lane: obs for lane, obs in self.observations.items()
@@ -188,7 +194,9 @@ class Demo:
         self.observations = self.feed.apply(0, on_poll)
         self.fixed = Simulation(self.site, FixedPolicy(self.site.signal.fixed))
         self.q = Simulation(self.site, QPolicy(self.model["q_table"]), trace=not self.args.adaptive)
-        self.arrivals = self.scenario.arrivals(self.site)
+        if self.training:
+            self.arrivals = live_arrivals(self.site, self.scenario.seed,
+                                          lambda: rates_for(self.site, self.training.volume))
         self.input_events = []
         self.tick = 0
         self.result_message = ""
@@ -211,7 +219,18 @@ class Demo:
             self.model = updated
             self.q.policy = QPolicy(updated["q_table"])
 
+    def live_ready(self):
+        if not self.training:
+            return True
+        volume = self.training.volume
+        if not volume or datetime.now(KST) - parse_time(volume.hour) >= timedelta(hours=2):
+            return False
+        return (len(self.observations) == len(self.site.approaches)
+                and not any(self.feed.is_stale(lane) for lane in self.observations))
+
     def step(self):
+        if not self.live_ready():
+            return
         current = self.observations if self.training else self.feed.apply(self.tick)
         if not self.training and (current != self.observations or not self.input_events):
             self.input_events.append({"at_s": self.tick * DT,
@@ -243,7 +262,7 @@ class Demo:
 
     def input_status(self):
         modes = set(obs.mode for obs in self.observations.values())
-        status = " + ".join(LABELS[key] for key in LABELS if key in modes)
+        status = " + ".join(LABELS[key] for key in LABELS if key in modes) or "라이브 대기"
         if self.poller and self.poller.reason:
             return f"{status} · {self.poller.reason}"
         if self.feed.log_error:
@@ -292,6 +311,8 @@ class Dashboard:
         title = f"서울 {region['name']}  /  {location}"
         label(screen, title, (29, 65), 16, MUTED)
         for index, row in enumerate(self.regions):
+            if demo.training and row.get("site") not in SITE_VOLUME:
+                continue
             self.button((929 + index * 109, 28, 101, 44), row["name"], lambda r=row: self.region(r),
                         active=row["id"] == region["id"])
         pg.draw.line(screen, BORDER, (26, 101), (1254, 101))
@@ -319,13 +340,17 @@ class Dashboard:
 
     def _controls(self):
         demo = self.demo
-        self.select((266, 118, 188, 37), demo.scenario.name, "scenario", demo.scenario_options,
-                    lambda key: demo.load(demo.site, key))
         if demo.training:
+            volume = demo.training.volume
+            text = (f"{volume.station} · {parse_time(volume.hour):%m/%d %H:%M} · {volume.count:,}대"
+                    if volume else "D-10 · 시간별 교통량 조회 대기")
+            label(self.screen, text, (264, 136), 13, INK, align="midleft")
             episodes = demo.model["metadata"]["episodes"]
-            label(self.screen, f"상시 추가 학습 · 적용 모델 {episodes}회", (468, 136), 14,
+            label(self.screen, f"상시 추가 학습 · 적용 모델 {episodes}회", (487, 136), 13,
                   TEAL, align="midleft")
         else:
+            self.select((266, 118, 188, 37), demo.scenario.name, "scenario", demo.scenario_options,
+                        lambda key: demo.load(demo.site, key))
             snapshots = list(SNAPSHOTS.items())
             if demo.snap_path and demo.site.id == demo.record_site:
                 snapshots.append(("custom", "추가 학습 모델"))
@@ -377,7 +402,10 @@ class Dashboard:
         label(screen, demo.input_status(), (730, 677), 13, BLUE, align="midright")
         self._observations(45, 697, 700)
         label(screen, "가상 주행 비교", (778, 665), 17, bold=True)
-        status = "시연 완료" if demo.finished else "진행 중" if demo.running else "일시정지"
+        if demo.training and not demo.live_ready():
+            status = "최신 속도·교통량 대기"
+        else:
+            status = "시연 완료" if demo.finished else "진행 중" if demo.running else "일시정지"
         label(screen, status, (1234, 678), 13, TEAL, bold=True, align="midright")
         fixed, q = demo.fixed.metrics(), demo.q.metrics()
         for x, title, metrics, color in ((778, "고정 신호", fixed, BLUE), (934, "강화학습 신호", q, TEAL)):
@@ -432,7 +460,11 @@ class Dashboard:
                         lambda: setattr(demo, "overview", False), filled=True)
             label(screen, "대표 교차로 접근로 입력", (848, 464), 17, bold=True)
             for index, approach in enumerate(demo.site.approaches):
-                obs = demo.observations[approach.id]
+                obs = demo.observations.get(approach.id)
+                if obs is None:
+                    label(screen, f"{approach.road}  {approach.direction} · 조회 대기",
+                          (848, 507 + index * 43), 13, MUTED)
+                    continue
                 cond = "원활" if obs.speed_kmh >= 25 else "서행" if obs.speed_kmh >= 15 else "정체"
                 old = " · 오래됨" if demo.feed.is_stale(approach.id) else ""
                 label(screen, f"{approach.road}  {approach.direction}  {obs.speed_kmh:g} km/h",
@@ -567,7 +599,7 @@ def launch(args, site):
                 backlog = 0.0
             if demo.training:
                 demo.refresh_training()
-            if demo.running and not demo.finished:
+            if demo.running and not demo.finished and demo.live_ready():
                 backlog += elapsed * demo.rate
                 while backlog >= DT and not demo.finished:
                     demo.step()

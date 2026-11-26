@@ -11,14 +11,15 @@ from .scenario import Scenario
 METRIC_BASIS = "예정 도착 전체. 진입 대기와 정지 누적만 계산하고, 종료 시까지의 대기를 포함."
 
 
-def run(site, scenario, policies):
-    simulations = {label: Simulation(site, policy) for label, policy in policies.items()}
+def run(site, scenario, policies, *, signals=False):
+    simulations = {label: Simulation(site, policy, trace=signals) for label, policy in policies.items()}
     for arrivals, speeds in scenario.tick_inputs():
         for simulation in simulations.values():
             simulation.step(arrivals, speeds)
     for policy in policies.values():
         policy.finish()
-    return {label: sim.metrics() for label, sim in simulations.items()}
+    return {label: {**sim.metrics(), **({"green_durations": sim.green_durations} if signals else {})}
+            for label, sim in simulations.items()}
 
 
 def dataset(site, names, seeds, duration, recording=None, spacing=1):
@@ -26,12 +27,12 @@ def dataset(site, names, seeds, duration, recording=None, spacing=1):
             for name in names for seed in seeds]
 
 
-def evaluate(site, scenarios, tables):
+def evaluate(site, scenarios, tables, *, signals=False):
     runs = []
     for scenario in scenarios:
         policies = {"fixed": FixedPolicy(site.signal.fixed), "queue": QueuePolicy()}
         policies.update({name: QPolicy(table) for name, table in tables.items()})
-        metrics = run(site, scenario, policies)
+        metrics = run(site, scenario, policies, signals=signals)
         runs.append({"scenario": scenario.id, "seed": scenario.seed, "seconds": scenario.duration,
                      "recording": Path(scenario.recording).name if scenario.recording else None,
                      "recording_compression": scenario.spacing,

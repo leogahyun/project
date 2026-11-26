@@ -10,14 +10,15 @@ from .observations import Observation, ObservationFeed, read_recording
 
 class Scenario:
     def __init__(self, site, name, seed, *, duration=None, recording=None, spacing=1,
-                 speed_override=None):
+                 speed_override=None, demand_rates=None):
         settings = read_json(ROOT / site.scenarios[name])
         self.id, self.name, self.seed = name, settings["name"], seed
         self.duration = int(duration if duration is not None else settings["duration"])
         self.ticks = self.duration * TICKS
         if self.ticks <= 0:
             raise ValueError("실험 시간은 양수여야 합니다.")
-        demand = sorted(settings["demand"], key=lambda row: row["at_s"])
+        demand = ([{"at_s": 0, "per_hour": demand_rates}] if demand_rates is not None
+                  else sorted(settings["demand"], key=lambda row: row["at_s"]))
         starts = [row["at_s"] * TICKS for row in demand]
         if not starts or starts[0] != 0:
             raise ValueError("수요 입력은 0초에서 시작해야 합니다.")

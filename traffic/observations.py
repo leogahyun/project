@@ -127,7 +127,11 @@ class TopisClient:
         self.opener = build_opener(NoRedirect())
 
     def fetch(self, link_id):
-        url = f"{API}/{quote(self.key, safe='')}/xml/TrafficInfo/1/5/{quote(link_id, safe='')}"
+        payload = self.request(f"TrafficInfo/1/5/{quote(link_id, safe='')}")
+        return parse_xml(payload, link_id, datetime.now(KST).isoformat(timespec="seconds"))
+
+    def request(self, path):
+        url = f"{API}/{quote(self.key, safe='')}/xml/{path}"
         try:
             with self.opener.open(url, timeout=self.timeout) as response:
                 payload = response.read(256 * 1024)
@@ -135,7 +139,7 @@ class TopisClient:
             raise TrafficInfoError(f"HTTP {error.code}") from None
         except (OSError, URLError, ValueError):
             raise TrafficInfoError("연결 또는 응답 해석 실패") from None
-        return parse_xml(payload, link_id, datetime.now(KST).isoformat(timespec="seconds"))
+        return payload
 
 
 @dataclass(frozen=True)
@@ -143,10 +147,11 @@ class PollResult:
     values: dict
     failed: frozenset
     log_error: bool = False
+    volume: object = None
 
 
 class LivePoller:
-    def __init__(self, site, interval=60, log_dir=None, client=None):
+    def __init__(self, site, interval=60, log_dir=None, client=None, volume_mapping=None):
         self.site_id = site.id
         self.links = {a.id: a.link_id for a in site.approaches if a.link_id}
         self.interval = interval
@@ -162,6 +167,10 @@ class LivePoller:
         else:
             self.client = client or TopisClient(key)
             self.log_path = Path(log_dir) / f"{site.id}.jsonl" if log_dir else None
+            self.volume_client = None
+            if volume_mapping:
+                from .volume import VolumeClient
+                self.volume_client = VolumeClient(self.client, volume_mapping)
             self.thread = Thread(target=self._run, name="topis-poll", daemon=True)
             self.thread.start()
 
@@ -185,7 +194,20 @@ class LivePoller:
                         file.write(json.dumps({"site": self.site_id, "values": log}, ensure_ascii=False) + "\n")
                 except OSError:
                     log_error = True
-            self.results.put(PollResult(values, frozenset(failed), log_error))
+            volume = None
+            if self.volume_client:
+                try:
+                    volume = self.volume_client.fetch()
+                    if volume and self.log_path:
+                        volume_path = self.log_path.with_name(f"{self.site_id}-volume.jsonl")
+                        volume_path.parent.mkdir(parents=True, exist_ok=True)
+                        with volume_path.open("a", encoding="utf-8") as file:
+                            file.write(json.dumps(asdict(volume), ensure_ascii=False) + "\n")
+                except TrafficInfoError:
+                    pass
+                except OSError:
+                    log_error = True
+            self.results.put(PollResult(values, frozenset(failed), log_error, volume))
             self.stop_event.wait(max(0, self.interval - (monotonic() - started)))
 
     def drain(self):
@@ -228,7 +250,7 @@ class ObservationFeed:
                 self.failed = result.failed
                 self.log_error = self.log_error or result.log_error
                 if on_poll:
-                    on_poll(fresh)
+                    on_poll(fresh, result.volume)
         return {**self.replay, **self.live}
 
     def is_stale(self, lane):
