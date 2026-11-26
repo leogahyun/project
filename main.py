@@ -31,6 +31,9 @@ def parser():
     result.add_argument("--seed", type=int, default=2026)
     result.add_argument("--duration", type=positive, default=240, help="실험 시간(초)")
     result.add_argument("--mode", choices=("auto", "live", "offline", "synthetic"), default="auto")
+    result.add_argument("--adaptive", action="store_true", help="상시 조회 및 변화 감지 후 추가 학습")
+    result.add_argument("--change-percent", type=multiplier, default=20)
+    result.add_argument("--adaptive-episodes", type=positive, default=24)
     result.add_argument("--poll-seconds", type=positive, default=60)
     result.add_argument("--recording", type=Path, help="재생하거나 추가 학습할 TOPIS JSONL 경로")
     result.add_argument("--recording-compression", type=multiplier, default=1,
@@ -54,6 +57,10 @@ def parser():
 def main():
     args = parser().parse_args()
     try:
+        if args.adaptive:
+            if args.command != "gui" or args.mode not in ("live", "auto") or args.recording or args.screenshot:
+                raise ValueError("--adaptive는 TOPIS 라이브 창에서 사용합니다.")
+            args.speed = 1
         site = load_site(args.site)
         if args.scenario and args.scenario not in site.scenarios:
             raise ValueError(f"가능한 시나리오: {', '.join(site.scenarios)}")

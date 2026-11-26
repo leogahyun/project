@@ -17,6 +17,7 @@ class Vehicle:
     waiting: int = 0
     crossed: bool = False
     speed: float = 0.0
+    arrival_tick: int = 0
 
 
 class Lane:
@@ -32,18 +33,20 @@ class Lane:
         self.crossed = 0
         self.exited = 0
         self.max_wait = 0
+        self.tick = 0
 
     def step(self, green, speed, exit_speed):
         self.speed = speed
         if self.pending and (not self.cars or self.cars[-1].position >= GAP):
-            self.cars.append(self.pending.popleft())
+            car = self.pending.popleft()
+            car.waiting += self.tick - car.arrival_tick
+            self.cars.append(car)
 
         leader = self.path.length + GAP
         waiting = len(self.pending)
-        for vehicle in self.pending:
-            vehicle.waiting += 1
         if self.pending:
-            self.max_wait = max(self.max_wait, self.pending[0].waiting)
+            oldest = self.pending[0]
+            self.max_wait = max(self.max_wait, oldest.waiting + self.tick - oldest.arrival_tick + 1)
 
         for car in self.cars:
             target = exit_speed if car.crossed else speed
@@ -65,6 +68,7 @@ class Lane:
             self.cars.popleft()
             self.exited += 1
         self.queue = waiting
+        self.tick += 1
         return waiting
 
     def condition(self):
@@ -90,7 +94,7 @@ class Simulation:
     def step(self, arrivals, speeds):
         for lane_id, number in arrivals:
             lane = self.lanes[lane_id]
-            lane.pending.append(Vehicle(number))
+            lane.pending.append(Vehicle(number, arrival_tick=self.tick))
             lane.queue += 1
             self.arrivals += 1
 

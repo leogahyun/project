@@ -1,6 +1,7 @@
 """외부 속도 입력과 가상 차량 수요를 독립된 시간표로 관리한다."""
 from bisect import bisect_right
 from hashlib import sha256
+from itertools import count, islice
 from random import Random
 
 from .config import ROOT, DT, TICKS, read_json
@@ -20,7 +21,8 @@ class Scenario:
         starts = [row["at_s"] * TICKS for row in demand]
         if not starts or starts[0] != 0:
             raise ValueError("수요 입력은 0초에서 시작해야 합니다.")
-        self.schedule = self._schedule(site, demand, starts, seed)
+        self.demand, self.demand_starts = demand, starts
+        self.schedule = tuple(islice(self.arrivals(site), self.ticks))
         self.signature = sha256(repr(self.schedule).encode()).hexdigest()
         self.timeline = self._timeline(site, settings, speed_override)
         if recording:
@@ -39,20 +41,19 @@ class Scenario:
         self.recording = recording
         self.spacing = spacing
 
-    def _schedule(self, site, demand, starts, seed):
-        rng = Random(seed)
+    def arrivals(self, site):
+        rng = Random(self.seed)
         number = 0
-        schedule = []
-        for tick in range(self.ticks):
-            row = demand[bisect_right(starts, tick) - 1]
+        for tick in count():
+            index = bisect_right(self.demand_starts, tick % self.ticks) - 1
+            row = self.demand[index]
             arrivals = []
             for approach in site.approaches:
                 per_hour = row["per_hour"][approach.id]
                 if rng.random() < per_hour * DT / 3600:
                     number += 1
                     arrivals.append((approach.id, number))
-            schedule.append(tuple(arrivals))
-        return tuple(schedule)
+            yield tuple(arrivals)
 
     def _timeline(self, site, settings, speed_override):
         frames = []

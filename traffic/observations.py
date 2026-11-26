@@ -210,20 +210,25 @@ class ObservationFeed:
         self.failed = set()
         self.log_error = False
 
-    def apply(self, tick):
+    def apply(self, tick, on_poll=None):
         while self.next is not None and self.next[0] <= tick:
             self.replay.update(self.next[1])
             self.next = next(self.timeline, None)
         if self.poller:
             for result in self.poller.drain():
+                fresh = {}
                 for lane, obs in result.values.items():
                     previous = self.live.get(lane)
                     if (previous and previous.observed_at and obs.observed_at
                             and parse_time(obs.observed_at) < parse_time(previous.observed_at)):
                         continue
                     self.live[lane] = obs
+                    if not obs.outdated(self.stale_after):
+                        fresh[lane] = obs
                 self.failed = result.failed
                 self.log_error = self.log_error or result.log_error
+                if on_poll:
+                    on_poll(fresh)
         return {**self.replay, **self.live}
 
     def is_stale(self, lane):

@@ -9,6 +9,7 @@ from pathlib import Path
 os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 import pygame as pg
 
+from .adaptive import AdaptiveTraining
 from .config import DT, ROOT, TICKS, districts, load_site, read_json, write_json
 from .engine import Simulation
 from .experiment import METRIC_BASIS
@@ -141,7 +142,7 @@ class Demo:
         self.running = True
         self.rate = args.speed
         self.snap_path = Path(args.snapshot) if args.snapshot not in SNAPSHOTS else None
-        self.site, self.poller = None, None
+        self.site, self.poller, self.training = None, None, None
         self.snapshot = args.snapshot if not self.snap_path else "custom"
         self.region = next(row for row in districts() if row["site"] == site.id)
         self.overview = False
@@ -162,6 +163,16 @@ class Demo:
             self.close()
             self.poller = (LivePoller(site, self.args.poll_seconds, ROOT / "runtime/logs")
                            if live_enabled else None)
+        training = None
+        if self.args.adaptive:
+            directory = ROOT / "runtime/adaptive" / site.id / scenario_name
+            saved = directory / "accepted.json"
+            if saved.exists():
+                model = load_model(saved, site.id)
+            training = AdaptiveTraining(site, scenario_name, self.args, directory)
+        if self.training:
+            self.training.close()
+        self.training = training
         self.site, self.model, self.scenario = site, model, scenario
         self.scenario_options = [(key, read_json(ROOT / value)["name"])
                                  for key, value in site.scenarios.items()]
@@ -173,26 +184,41 @@ class Demo:
             mapped = {a.id: a.link_id for a in self.site.approaches if a.link_id}
             self.feed.live = {lane: obs for lane, obs in self.observations.items()
                               if obs.mode == "live" and mapped.get(lane) == obs.link_id}
-        self.observations = self.feed.apply(0)
+        on_poll = self.training.observe if self.training else None
+        self.observations = self.feed.apply(0, on_poll)
         self.fixed = Simulation(self.site, FixedPolicy(self.site.signal.fixed))
-        self.q = Simulation(self.site, QPolicy(self.model["q_table"]), trace=True)
+        self.q = Simulation(self.site, QPolicy(self.model["q_table"]), trace=not self.args.adaptive)
+        self.arrivals = self.scenario.arrivals(self.site)
         self.input_events = []
         self.tick = 0
         self.result_message = ""
         self.save_pending = True
 
+    @property
+    def finished(self):
+        return not self.args.adaptive and self.tick >= self.scenario.ticks
+
     def close(self):
+        if self.training:
+            self.training.close()
         if self.poller:
             self.poller.close()
 
+    def refresh_training(self):
+        self.observations = self.feed.apply(self.tick, self.training.observe)
+        updated = self.training.update(self.model)
+        if updated:
+            self.model = updated
+            self.q.policy = QPolicy(updated["q_table"])
+
     def step(self):
-        current = self.feed.apply(self.tick)
-        if current != self.observations or not self.input_events:
+        current = self.observations if self.training else self.feed.apply(self.tick)
+        if not self.training and (current != self.observations or not self.input_events):
             self.input_events.append({"at_s": self.tick * DT,
                                       "values": {lane: asdict(obs) for lane, obs in current.items()}})
         self.observations = current
         speeds = {lane: obs.speed_kmh for lane, obs in current.items()}
-        arrivals = self.scenario.schedule[self.tick]
+        arrivals = next(self.arrivals) if self.training else self.scenario.schedule[self.tick]
         self.fixed.step(arrivals, speeds)
         self.q.step(arrivals, speeds)
         self.tick += 1
@@ -205,8 +231,9 @@ class Demo:
         path = ROOT / "runtime/results" / f"{self.site.id}-{stamp}.json"
         try:
             write_json(path, {"site": self.site.id, "scenario": self.scenario.id,
-                              "seed": self.scenario.seed, "duration_s": self.scenario.duration,
-                              "mean_wait_basis": METRIC_BASIS, "arrivals_sha256": self.scenario.signature,
+                              "seed": self.scenario.seed, "duration_s": self.tick * DT,
+                              "adaptive": self.args.adaptive,
+                              "mean_wait_basis": METRIC_BASIS, "arrivals_sha256": None if self.training else self.scenario.signature,
                               "snapshot": self.snapshot, "episode": self.model["metadata"]["episodes"],
                               "inputs": self.input_events, "decisions": self.q.decisions,
                               "fixed": self.fixed.metrics(), "q_learning": self.q.metrics()})
@@ -294,18 +321,25 @@ class Dashboard:
         demo = self.demo
         self.select((266, 118, 188, 37), demo.scenario.name, "scenario", demo.scenario_options,
                     lambda key: demo.load(demo.site, key))
-        snapshots = list(SNAPSHOTS.items())
-        if demo.snap_path and demo.site.id == demo.record_site:
-            snapshots.append(("custom", "추가 학습 모델"))
-        self.select((464, 118, 143, 37), dict(snapshots)[demo.snapshot], "snapshot", snapshots,
-                    self.snapshot)
-        self.button((623, 118, 87, 37), f"{demo.rate:g}×", self.cycle_rate)
+        if demo.training:
+            episodes = demo.model["metadata"]["episodes"]
+            label(self.screen, f"상시 추가 학습 · 적용 모델 {episodes}회", (468, 136), 14,
+                  TEAL, align="midleft")
+        else:
+            snapshots = list(SNAPSHOTS.items())
+            if demo.snap_path and demo.site.id == demo.record_site:
+                snapshots.append(("custom", "추가 학습 모델"))
+            self.select((464, 118, 143, 37), dict(snapshots)[demo.snapshot], "snapshot", snapshots,
+                        self.snapshot)
+            self.button((623, 118, 87, 37), f"{demo.rate:g}×", self.cycle_rate)
         self.button((719, 118, 88, 37), "일시정지" if demo.running else "실행", self.toggle, filled=True)
         self.button((815, 118, 79, 37), "초기화", demo.reset)
-        label(self.screen, f"{clock_text(demo.tick)}  /  {clock_text(demo.scenario.ticks)}",
+        elapsed = clock_text(demo.tick)
+        timer = f"상시 운전  {elapsed}" if demo.training else f"{elapsed}  /  {clock_text(demo.scenario.ticks)}"
+        label(self.screen, timer,
               (1251, 136), 19, bold=True, align="midright")
         pg.draw.rect(self.screen, BORDER, (26, 168, 1228, 4), border_radius=3)
-        width = round(1228 * demo.tick / demo.scenario.ticks)
+        width = 0 if demo.training else round(1228 * demo.tick / demo.scenario.ticks)
         if width:
             pg.draw.rect(self.screen, BLUE, (26, 168, width, 4), border_radius=3)
 
@@ -343,7 +377,7 @@ class Dashboard:
         label(screen, demo.input_status(), (730, 677), 13, BLUE, align="midright")
         self._observations(45, 697, 700)
         label(screen, "가상 주행 비교", (778, 665), 17, bold=True)
-        status = "시연 완료" if demo.tick >= demo.scenario.ticks else "진행 중" if demo.running else "일시정지"
+        status = "시연 완료" if demo.finished else "진행 중" if demo.running else "일시정지"
         label(screen, status, (1234, 678), 13, TEAL, bold=True, align="midright")
         fixed, q = demo.fixed.metrics(), demo.q.metrics()
         for x, title, metrics, color in ((778, "고정 신호", fixed, BLUE), (934, "강화학습 신호", q, TEAL)):
@@ -353,7 +387,8 @@ class Dashboard:
         label(screen, "대기 차이 (AI − 고정)", (1093, 702), 12, MUTED)
         difference = q["mean_wait_s"] - fixed["mean_wait_s"]
         label(screen, f"{difference:+.1f}초", (1093, 721), 24, TEAL if difference < 0 else INK, bold=True)
-        message = demo.result_message or "차량당 평균 대기 · 예정 도착 전체 기준"
+        message = (demo.training.status if demo.training else
+                   demo.result_message or "차량당 평균 대기 · 예정 도착 전체 기준")
         label(screen, message, (778, 803), 11, MUTED)
 
     def _observations(self, x, y, width):
@@ -478,7 +513,7 @@ class Dashboard:
         demo.rate = rates[(rates.index(demo.rate) + 1) % len(rates)] if demo.rate in rates else 1
 
     def toggle(self):
-        if self.demo.tick >= self.demo.scenario.ticks:
+        if self.demo.finished:
             self.demo.reset()
             self.demo.running = True
         else:
@@ -530,17 +565,21 @@ def launch(args, site):
                     dashboard.click(event.pos)
             if demo.tick < prior_tick:
                 backlog = 0.0
-            if demo.running and demo.tick < demo.scenario.ticks:
+            if demo.training:
+                demo.refresh_training()
+            if demo.running and not demo.finished:
                 backlog += elapsed * demo.rate
-                while backlog >= DT and demo.tick < demo.scenario.ticks:
+                while backlog >= DT and not demo.finished:
                     demo.step()
                     backlog -= DT
-            if demo.tick == demo.scenario.ticks:
+            if demo.finished:
                 demo.running = False
                 demo.save()
             fraction = min(1, backlog / DT) if demo.running else 1
             dashboard.draw(fraction)
             pg.display.flip()
     finally:
+        if demo.training and demo.tick:
+            demo.save()
         demo.close()
         pg.quit()
