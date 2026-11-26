@@ -57,6 +57,10 @@ class AdaptiveTests(unittest.TestCase):
             for lane in range(1, 6))
         response = "<VolInfo><RESULT><CODE>INFO-000</CODE></RESULT>" + rows + "</VolInfo>"
         result = parse_volume(response, "D-10", self.hour, 5, datetime.now(KST))
+        decimal_rows = response.replace(">300<", "> 300.0 <")
+        self.assertEqual(parse_volume(decimal_rows, "D-10", self.hour, 5, datetime.now(KST)).count, 1500)
+        with self.assertRaisesRegex(TrafficInfoError, "VOL 필드"):
+            parse_volume(response.replace(">300<", ">invalid<"), "D-10", self.hour, 5, datetime.now(KST))
         self.assertEqual(result.count, 1500)
         self.assertEqual(rates_for(self.site, volume(self.hour, 2250))["east"], 450)
         with self.assertRaisesRegex(TrafficInfoError, "집계 없음"):
@@ -145,13 +149,21 @@ class AdaptiveTests(unittest.TestCase):
                 select.assert_not_called()
             demo.overview = True
             dashboard.draw()
+            demo.poller.results.put(PollResult(speeds(self.site, 22), frozenset(),
+                                              volume_error="교통량 VOL 필드 누락"))
+            demo.refresh_training()
+            demo.step()
+            self.assertEqual(demo.tick, 1)
+            self.assertEqual(demo.assumed_volume_ticks, 1)
+            self.assertIsNone(demo.training.future)
             demo.poller.results.put(PollResult(speeds(self.site, 22), frozenset(), volume=self.observed))
             demo.refresh_training()
             for _ in range(demo.scenario.ticks + 4):
                 demo.step()
             self.assertFalse(demo.finished)
             self.assertEqual(demo.fixed.arrivals, demo.q.arrivals)
-            self.assertEqual(demo.fixed.tick, demo.scenario.ticks + 4)
+            self.assertEqual(demo.fixed.tick, demo.scenario.ticks + 5)
+            self.assertEqual(demo.assumed_volume_ticks, 1)
         finally:
             demo.close()
 

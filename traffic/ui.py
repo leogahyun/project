@@ -1,6 +1,6 @@
 """Pygame 지도, 시연 제어, 관측과 실험 결과."""
 from dataclasses import asdict
-from datetime import datetime, timedelta
+from datetime import datetime
 from functools import lru_cache
 import math
 import os
@@ -16,7 +16,7 @@ from .experiment import METRIC_BASIS
 from .observations import KST, LABELS, LivePoller, ObservationFeed, parse_time
 from .policy import FixedPolicy, QPolicy, load_model
 from .scenario import Scenario
-from .volume import SITE_VOLUME, live_arrivals, rates_for
+from .volume import SITE_VOLUME, fresh_volume, live_arrivals, rates_for
 
 SIZE = (1280, 854)
 BG = "#eef2f7"
@@ -196,9 +196,10 @@ class Demo:
         self.q = Simulation(self.site, QPolicy(self.model["q_table"]), trace=not self.args.adaptive)
         if self.training:
             self.arrivals = live_arrivals(self.site, self.scenario.seed,
-                                          lambda: rates_for(self.site, self.training.volume))
+                                          lambda: rates_for(self.site, fresh_volume(self.training.volume)))
         self.input_events = []
         self.tick = 0
+        self.assumed_volume_ticks = 0
         self.result_message = ""
         self.save_pending = True
 
@@ -222,9 +223,6 @@ class Demo:
     def live_ready(self):
         if not self.training:
             return True
-        volume = self.training.volume
-        if not volume or datetime.now(KST) - parse_time(volume.hour) >= timedelta(hours=2):
-            return False
         return (len(self.observations) == len(self.site.approaches)
                 and not any(self.feed.is_stale(lane) for lane in self.observations))
 
@@ -241,6 +239,8 @@ class Demo:
         self.fixed.step(arrivals, speeds)
         self.q.step(arrivals, speeds)
         self.tick += 1
+        if self.training and not fresh_volume(self.training.volume):
+            self.assumed_volume_ticks += 1
 
     def save(self):
         if not self.save_pending:
@@ -252,6 +252,7 @@ class Demo:
             write_json(path, {"site": self.site.id, "scenario": self.scenario.id,
                               "seed": self.scenario.seed, "duration_s": self.tick * DT,
                               "adaptive": self.args.adaptive,
+                              "assumed_volume_seconds": self.assumed_volume_ticks * DT,
                               "mean_wait_basis": METRIC_BASIS, "arrivals_sha256": None if self.training else self.scenario.signature,
                               "snapshot": self.snapshot, "episode": self.model["metadata"]["episodes"],
                               "inputs": self.input_events, "decisions": self.q.decisions,
@@ -341,9 +342,9 @@ class Dashboard:
     def _controls(self):
         demo = self.demo
         if demo.training:
-            volume = demo.training.volume
+            volume = fresh_volume(demo.training.volume)
             text = (f"{volume.station} · {parse_time(volume.hour):%m/%d %H:%M} · {volume.count:,}대"
-                    if volume else "D-10 · 시간별 교통량 조회 대기")
+                    if volume else "D-10 미확인 · 유입량 가정")
             label(self.screen, text, (264, 136), 13, INK, align="midleft")
             episodes = demo.model["metadata"]["episodes"]
             label(self.screen, f"상시 추가 학습 · 적용 모델 {episodes}회", (487, 136), 13,
@@ -403,7 +404,11 @@ class Dashboard:
         self._observations(45, 697, 700)
         label(screen, "가상 주행 비교", (778, 665), 17, bold=True)
         if demo.training and not demo.live_ready():
-            status = "최신 속도·교통량 대기"
+            status = "최신 속도 대기"
+        elif demo.training and demo.running and not fresh_volume(demo.training.volume):
+            status = "진행 중 · 유입량 가정"
+        elif demo.training and demo.assumed_volume_ticks:
+            status = "누적값 · 가정 구간 포함"
         else:
             status = "시연 완료" if demo.finished else "진행 중" if demo.running else "일시정지"
         label(screen, status, (1234, 678), 13, TEAL, bold=True, align="midright")
@@ -417,7 +422,7 @@ class Dashboard:
         label(screen, f"{difference:+.1f}초", (1093, 721), 24, TEAL if difference < 0 else INK, bold=True)
         message = (demo.training.status if demo.training else
                    demo.result_message or "차량당 평균 대기 · 예정 도착 전체 기준")
-        if demo.training and not demo.live_ready() and demo.feed.volume_error:
+        if demo.training and demo.feed.volume_error:
             message = demo.feed.volume_error
         label(screen, message, (778, 803), 11, MUTED)
 

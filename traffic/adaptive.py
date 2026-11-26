@@ -10,7 +10,7 @@ from uuid import uuid4
 
 from .config import write_json
 from .observations import KST
-from .volume import VolumeChange, rates_for
+from .volume import VolumeChange, fresh_volume, rates_for
 from .experiment import evaluate, run
 from .policy import QPolicy, save_model
 from .scenario import Scenario
@@ -126,7 +126,7 @@ class AdaptiveTraining:
 
         if self.future is None and self.waiting:
             values, volume, change = self.waiting
-            if self.volume != volume:
+            if self.volume != volume or not fresh_volume(volume):
                 self.waiting = None
                 return replacement
             if len(values) != len(self.site.approaches) or any(
