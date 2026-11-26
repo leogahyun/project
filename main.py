@@ -1,6 +1,7 @@
 """VS Code와 명령행에서 공통으로 사용하는 실행 파일."""
 import argparse
 import os
+from re import fullmatch
 from getpass import getpass
 from pathlib import Path
 import sys
@@ -33,6 +34,9 @@ def parser():
     result.add_argument("--seed", type=int, default=2026)
     result.add_argument("--duration", type=positive, default=240, help="실험 시간(초)")
     result.add_argument("--mode", choices=("auto", "live", "offline", "synthetic"), default="auto")
+    result.add_argument("--tdata-intersection", help="태릉입구역 C-ITS 교차로 ID")
+    result.add_argument("--tdata-directions", nargs=4, metavar=("WEST", "EAST", "NORTH", "SOUTH"),
+                        help="서측·동측·북측·남측 접근로의 T-Data 방향 코드")
     result.add_argument("--adaptive", action="store_true", help="TOPIS 교통량 변화 감시 및 추가 학습")
     result.add_argument("--change-percent", type=multiplier, default=20)
     result.add_argument("--adaptive-episodes", type=positive, default=24)
@@ -57,19 +61,23 @@ def parser():
 
 
 def prompt_topis_key():
+    return prompt_key("TOPIS 인증키", "서울 열린데이터광장")
+
+
+def prompt_key(title, provider):
     try:
         from tkinter import TclError, Tk, simpledialog
     except ImportError:
-        return getpass("서울 열린데이터광장 인증키: ") if sys.stdin.isatty() else None
+        return getpass(f"{provider} 인증키: ") if sys.stdin.isatty() else None
 
     try:
         root = Tk()
     except TclError:
-        return getpass("서울 열린데이터광장 인증키: ") if sys.stdin.isatty() else None
+        return getpass(f"{provider} 인증키: ") if sys.stdin.isatty() else None
     try:
         root.withdraw()
         return simpledialog.askstring(
-            "TOPIS 인증키", "서울 열린데이터광장에서 발급받은 인증키를 입력하세요.",
+            title, f"{provider}에서 발급받은 인증키를 입력하세요.",
             parent=root, show="*")
     finally:
         root.destroy()
@@ -78,6 +86,13 @@ def prompt_topis_key():
 def main():
     args = parser().parse_args()
     try:
+        if args.tdata_intersection or args.tdata_directions:
+            from traffic.td_signal import DIRECTIONS
+            codes = args.tdata_directions or []
+            if (not args.adaptive or not fullmatch(r"[0-9]{5}", args.tdata_intersection or "")
+                    or len(set(codes)) != 4 or not set(codes) <= DIRECTIONS):
+                raise ValueError("T-Data 모드에는 --adaptive, 교차로 ID 5자리, 방향 코드 4개가 필요합니다.")
+            args.tdata_directions = dict(zip(("west", "east", "north", "south"), codes))
         if args.adaptive:
             if args.command != "gui" or args.mode not in ("live", "auto") or args.recording or args.screenshot:
                 raise ValueError("--adaptive는 TOPIS 라이브 창에서 사용합니다.")
@@ -122,6 +137,11 @@ def main():
                     print("TOPIS 인증키 입력이 취소되었거나 비어 있습니다.", file=sys.stderr)
                     return 1
                 os.environ["SEOUL_OPEN_API_KEY"] = key
+            if args.tdata_intersection and not os.environ.get("SEOUL_TDATA_API_KEY", "").strip():
+                key = (prompt_key("T-Data 인증키", "서울 T-Data") or "").strip()
+                if not key:
+                    raise ValueError("T-Data 인증키 입력이 취소되었거나 비어 있습니다.")
+                os.environ["SEOUL_TDATA_API_KEY"] = key
             from traffic.ui import launch
             return launch(args, site)
         for name, metrics in report["summary"].items():

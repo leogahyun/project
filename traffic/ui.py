@@ -16,6 +16,7 @@ from .experiment import METRIC_BASIS
 from .observations import KST, LABELS, LivePoller, ObservationFeed, parse_time
 from .policy import FixedPolicy, QPolicy, load_model
 from .scenario import Scenario
+from .td_signal import SignalPoller
 from .volume import SITE_VOLUME, fresh_volume, live_arrivals, rates_for
 
 SIZE = (1280, 854)
@@ -95,7 +96,7 @@ class MapView:
             points = [self.point(x, y) for x, y in approach.path]
             pg.draw.lines(self.base, "#37495e", False, points, 10)
 
-    def draw(self, surface, simulation, fraction):
+    def draw(self, surface, simulation, fraction, live_signals=None):
         frame = self.base.copy()
         for lane in simulation.lanes.values():
             approach = lane.approach
@@ -109,7 +110,9 @@ class MapView:
                 self._vehicle(frame, car.number, *lane.path.at(distance))
             dot = (round(px + nx * 12), round(py + ny * 12))
             pg.draw.circle(frame, "#0b1522", dot, 8)
-            pg.draw.circle(frame, signal_color(simulation, approach.group), dot, 5)
+            color = (signal_color(simulation, approach.group) if live_signals is None
+                     else SIGNALS.get(live_signals.get(approach.id, (None,))[0], "#8293a6"))
+            pg.draw.circle(frame, color, dot, 5)
             lx, ly = self.point(*approach.label)
             condition = lane.condition()
             box(frame, (lx - 23, ly - 10, 46, 21), "#122032", None, 6)
@@ -147,7 +150,12 @@ class Demo:
         self.snapshot = args.snapshot if not self.snap_path else "custom"
         self.region = next(row for row in districts() if row["site"] == site.id)
         self.overview = False
+        self.signal_feed = None
+        self.live_signals = {}
         self.load(site, args.scenario or next(iter(site.scenarios)))
+        if args.tdata_intersection:
+            self.signal_feed = SignalPoller(os.environ["SEOUL_TDATA_API_KEY"],
+                                            args.tdata_intersection, args.tdata_directions)
 
     def load(self, site, scenario_name):
         model_path = self.snap_path if self.snapshot == "custom" else site.model_dir / f"{self.snapshot}.json"
@@ -208,12 +216,16 @@ class Demo:
         return not self.args.adaptive and self.tick >= self.scenario.ticks
 
     def close(self):
+        if self.signal_feed:
+            self.signal_feed.close()
         if self.training:
             self.training.close()
         if self.poller:
             self.poller.close()
 
     def refresh_training(self):
+        if self.signal_feed:
+            self.live_signals = self.signal_feed.read()
         self.observations = self.feed.apply(self.tick, self.training.observe)
         updated = self.training.update(self.model)
         if updated:
@@ -223,7 +235,8 @@ class Demo:
     def live_ready(self):
         if not self.training:
             return True
-        return (len(self.observations) == len(self.site.approaches)
+        return ((not self.signal_feed or bool(self.live_signals))
+                and len(self.observations) == len(self.site.approaches)
                 and not any(self.feed.is_stale(lane) for lane in self.observations))
 
     def step(self):
@@ -236,7 +249,9 @@ class Demo:
         self.observations = current
         speeds = {lane: obs.speed_kmh for lane, obs in current.items()}
         arrivals = next(self.arrivals) if self.training else self.scenario.schedule[self.tick]
-        self.fixed.step(arrivals, speeds)
+        aspects = ({lane: state for lane, (state, _) in self.live_signals.items()}
+                   if self.signal_feed else None)
+        self.fixed.step(arrivals, speeds, external_aspects=aspects)
         self.q.step(arrivals, speeds)
         self.tick += 1
         if self.training and not fresh_volume(self.training.volume):
@@ -252,6 +267,8 @@ class Demo:
             write_json(path, {"site": self.site.id, "scenario": self.scenario.id,
                               "seed": self.scenario.seed, "duration_s": self.tick * DT,
                               "adaptive": self.args.adaptive,
+                              "comparison_signal": ("tdata_live" if self.signal_feed else "fixed"),
+                              "tdata_intersection": self.args.tdata_intersection,
                               "assumed_volume_seconds": self.assumed_volume_ticks * DT,
                               "mean_wait_basis": METRIC_BASIS, "arrivals_sha256": None if self.training else self.scenario.signature,
                               "snapshot": self.snapshot, "episode": self.model["metadata"]["episodes"],
@@ -326,7 +343,7 @@ class Dashboard:
             self._overview()
         else:
             self._controls()
-            self._panel(demo.fixed, 27, "고정 신호", BLUE, fraction)
+            self._panel(demo.fixed, 27, "실시간 현장 신호" if demo.signal_feed else "고정 신호", BLUE, fraction)
             self._panel(demo.q, 649, "강화학습 신호", TEAL, fraction)
             self._footer()
         if self.error:
@@ -378,13 +395,23 @@ class Dashboard:
         if aspect != "all_red":
             phase_name = f"{sim.site.groups[sim.signal.group]} {phase_name}"
         phase_text = f"{phase_name}  {sim.signal.elapsed * DT:04.1f}초"
-        pg.draw.circle(self.screen, signal_color(sim, sim.signal.group), (x + 405, 215), 5)
+        live = self.demo.signal_feed if sim is self.demo.fixed else None
+        if live:
+            phase_text = live.status
+        else:
+            pg.draw.circle(self.screen, signal_color(sim, sim.signal.group), (x + 405, 215), 5)
         label(self.screen, phase_text, (x + 587, 214), 15, INK, bold=True, align="midright")
         key = (sim.site.id, x)
         if key not in self.maps:
             self.maps[key] = MapView(sim.site, (x + 9, 234, 586, 351))
-        self.maps[key].draw(self.screen, sim, fraction)
-        if name == "고정 신호":
+        self.maps[key].draw(self.screen, sim, fraction, self.demo.live_signals if live else None)
+        if live:
+            names = {"west": "서측", "east": "동측", "north": "북측", "south": "남측"}
+            colors = {"green": "녹색", "yellow": "황색", "red": "적색"}
+            message = "  ·  ".join(f"{names[lane]} {colors[state]} {seconds:.1f}초"
+                                    for lane, (state, seconds) in self.demo.live_signals.items())
+            message = message or "방향별 직진 신호 수신 대기"
+        elif sim is self.demo.fixed:
             message = f"양 방향 녹색 각 {sim.site.signal.fixed}초"
         elif not sim.last_action:
             message = f"첫 판단 대기 · 최소 녹색 {sim.site.signal.minimum}초"
@@ -403,7 +430,9 @@ class Dashboard:
         label(screen, demo.input_status(), (730, 677), 13, BLUE, align="midright")
         self._observations(45, 697, 700)
         label(screen, "가상 주행 비교", (778, 665), 17, bold=True)
-        if demo.training and not demo.live_ready():
+        if demo.signal_feed and not demo.live_signals:
+            status = "최신 현장 신호 대기"
+        elif demo.training and not demo.live_ready():
             status = "최신 속도 대기"
         elif demo.training and demo.running and not fresh_volume(demo.training.volume):
             status = "진행 중 · 유입량 가정"
@@ -413,11 +442,11 @@ class Dashboard:
             status = "시연 완료" if demo.finished else "진행 중" if demo.running else "일시정지"
         label(screen, status, (1234, 678), 13, TEAL, bold=True, align="midright")
         fixed, q = demo.fixed.metrics(), demo.q.metrics()
-        for x, title, metrics, color in ((778, "고정 신호", fixed, BLUE), (934, "강화학습 신호", q, TEAL)):
+        for x, title, metrics, color in ((778, "현장 신호" if demo.signal_feed else "고정 신호", fixed, BLUE), (934, "강화학습 신호", q, TEAL)):
             label(screen, title, (x, 702), 12, color, bold=True)
             label(screen, f"{metrics['mean_wait_s']:.1f}초", (x, 721), 25, INK, bold=True)
             label(screen, f"정지선 통과 {metrics['crossed_stop_line']}대", (x, 761), 13, MUTED)
-        label(screen, "대기 차이 (AI − 고정)", (1093, 702), 12, MUTED)
+        label(screen, "대기 차이 (AI − 현장)" if demo.signal_feed else "대기 차이 (AI − 고정)", (1093, 702), 12, MUTED)
         difference = q["mean_wait_s"] - fixed["mean_wait_s"]
         label(screen, f"{difference:+.1f}초", (1093, 721), 24, TEAL if difference < 0 else INK, bold=True)
         message = (demo.training.status if demo.training else

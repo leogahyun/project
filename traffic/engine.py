@@ -92,14 +92,14 @@ class Simulation:
         self.decisions = [] if trace else None
         self.green_durations = [] if trace else None
 
-    def step(self, arrivals, speeds):
+    def step(self, arrivals, speeds, *, external_aspects=None):
         for lane_id, number in arrivals:
             lane = self.lanes[lane_id]
             lane.pending.append(Vehicle(number, arrival_tick=self.tick))
             lane.queue += 1
             self.arrivals += 1
 
-        allowed = self.signal.allowed()
+        allowed = self.signal.allowed() if external_aspects is None else ()
         if allowed:
             queues = self._queues()
             state = (*queues, self.signal.group, self.signal.elapsed // TICKS)
@@ -116,15 +116,18 @@ class Simulation:
         for lane_id, lane in self.lanes.items():
             road_speed = max(settings["minimum_mps"], min(settings["maximum_mps"],
                              speeds[lane_id] * settings["scale"] / 3.6))
-            waiting += lane.step(self.signal.aspect(lane.approach.group) == "green",
+            aspect = (self.signal.aspect(lane.approach.group) if external_aspects is None
+                      else external_aspects[lane_id])
+            waiting += lane.step(aspect == "green",
                                  road_speed, settings["exit_mps"])
         self.total_wait += waiting
         self.queues = self._queues()
         self.policy.observe(-waiting * DT)
-        if (self.green_durations is not None and self.signal.phase == "green"
+        if (external_aspects is None and self.green_durations is not None and self.signal.phase == "green"
                 and self.signal.elapsed + 1 == self.signal.settings.maximum * TICKS):
             self.record_green(1)
-        self.signal.advance()
+        if external_aspects is None:
+            self.signal.advance()
         self.tick += 1
         if self.signal.closed:
             self.last_action = (self.tick, 0, "maximum")
