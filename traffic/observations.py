@@ -148,6 +148,7 @@ class PollResult:
     failed: frozenset
     log_error: bool = False
     volume: object = None
+    volume_error: str | None = None
 
 
 class LivePoller:
@@ -194,7 +195,7 @@ class LivePoller:
                         file.write(json.dumps({"site": self.site_id, "values": log}, ensure_ascii=False) + "\n")
                 except OSError:
                     log_error = True
-            volume = None
+            volume = volume_error = None
             if self.volume_client:
                 try:
                     volume = self.volume_client.fetch()
@@ -203,11 +204,11 @@ class LivePoller:
                         volume_path.parent.mkdir(parents=True, exist_ok=True)
                         with volume_path.open("a", encoding="utf-8") as file:
                             file.write(json.dumps(asdict(volume), ensure_ascii=False) + "\n")
-                except TrafficInfoError:
-                    pass
+                except TrafficInfoError as error:
+                    volume_error = str(error)
                 except OSError:
                     log_error = True
-            self.results.put(PollResult(values, frozenset(failed), log_error, volume))
+            self.results.put(PollResult(values, frozenset(failed), log_error, volume, volume_error))
             self.stop_event.wait(max(0, self.interval - (monotonic() - started)))
 
     def drain(self):
@@ -231,6 +232,7 @@ class ObservationFeed:
         self.stale_after = stale_after
         self.failed = set()
         self.log_error = False
+        self.volume_error = None
 
     def apply(self, tick, on_poll=None):
         while self.next is not None and self.next[0] <= tick:
@@ -248,6 +250,7 @@ class ObservationFeed:
                     if not obs.outdated(self.stale_after):
                         fresh[lane] = obs
                 self.failed = result.failed
+                self.volume_error = result.volume_error
                 self.log_error = self.log_error or result.log_error
                 if on_poll:
                     on_poll(fresh, result.volume)

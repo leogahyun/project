@@ -47,6 +47,12 @@ class AdaptiveTests(unittest.TestCase):
         result = parse_volume(response, "D-10", self.hour, 5, datetime.now(KST))
         self.assertEqual(result.count, 1500)
         self.assertEqual(rates_for(self.site, volume(self.hour, 2250))["east"], 450)
+        with self.assertRaisesRegex(TrafficInfoError, "집계 없음"):
+            parse_volume("<RESULT><CODE>INFO-200</CODE></RESULT>",
+                         "D-10", self.hour, 5, datetime.now(KST))
+        with self.assertRaisesRegex(TrafficInfoError, "차로 집계 4/5개"):
+            parse_volume(response.replace(rows[rows.rfind("<row>"):], ""),
+                         "D-10", self.hour, 5, datetime.now(KST))
         with self.assertRaises(TrafficInfoError):
             parse_volume(response.replace(">5</lane_num>", ">4</lane_num>"),
                          "D-10", self.hour, 5, datetime.now(KST))

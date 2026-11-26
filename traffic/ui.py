@@ -417,6 +417,8 @@ class Dashboard:
         label(screen, f"{difference:+.1f}초", (1093, 721), 24, TEAL if difference < 0 else INK, bold=True)
         message = (demo.training.status if demo.training else
                    demo.result_message or "차량당 평균 대기 · 예정 도착 전체 기준")
+        if demo.training and not demo.live_ready() and demo.feed.volume_error:
+            message = demo.feed.volume_error
         label(screen, message, (778, 803), 11, MUTED)
 
     def _observations(self, x, y, width):

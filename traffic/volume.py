@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from random import Random
+from re import fullmatch
 from xml.etree import ElementTree as ET
 
 from .config import DT
@@ -24,8 +25,13 @@ class Volume:
 def parse_volume(payload, station, hour, lanes, fetched_at):
     try:
         root = ET.fromstring(payload)
-        if root.findtext("./RESULT/CODE") != "INFO-000":
-            raise ValueError
+        code = root.findtext("./RESULT/CODE") or root.findtext("./CODE")
+        if code == "INFO-200":
+            raise TrafficInfoError("해당 시간대 집계 없음 (INFO-200)")
+        if code != "INFO-000":
+            if code and fullmatch(r"(?:INFO|ERROR)-[0-9]{3}", code):
+                raise TrafficInfoError(f"교통량 API 응답 {code}")
+            raise TrafficInfoError("교통량 API 결과 코드 누락")
         counts, directions = {}, set()
         for element in root.findall("row"):
             row = {child.tag.upper(): child.text for child in element}
@@ -38,11 +44,15 @@ def parse_volume(payload, station, hour, lanes, fetched_at):
             counts[lane] = count
             directions.add(row["IO_TYPE"])
         # 공개 명세는 유입만 제공한다. 방향이 섞이거나 차로가 누락된 응답은 제외한다.
-        if len(directions) != 1 or None in directions or len(counts) != lanes:
-            raise ValueError
+        if not counts:
+            raise TrafficInfoError("해당 시간대 차량 집계 없음")
+        if len(directions) != 1 or None in directions:
+            raise TrafficInfoError("유입 방향 확인 불가")
+        if len(counts) != lanes:
+            raise TrafficInfoError(f"차로 집계 {len(counts)}/{lanes}개")
         return Volume(station, hour.isoformat(), fetched_at.isoformat(), sum(counts.values()), lanes)
     except (ET.ParseError, KeyError, TypeError, ValueError):
-        raise TrafficInfoError("완료 시간대의 유입 교통량을 확인할 수 없음") from None
+        raise TrafficInfoError("교통량 응답 형식 또는 집계값 오류") from None
 
 
 class VolumeClient:
@@ -56,8 +66,11 @@ class VolumeClient:
         if self.latest and self.latest.hour == hour.isoformat():
             return None
         station, _, lanes = self.mapping
-        payload = self.client.request(f"VolInfo/1/100/{station}/{hour:%Y%m%d}/{hour:%H}/")
-        self.latest = parse_volume(payload, station, hour, lanes, datetime.now(KST))
+        try:
+            payload = self.client.request(f"VolInfo/1/100/{station}/{hour:%Y%m%d}/{hour:%H}/")
+            self.latest = parse_volume(payload, station, hour, lanes, datetime.now(KST))
+        except TrafficInfoError as error:
+            raise TrafficInfoError(f"D-10 {hour:%m/%d %H}시 · {error}") from None
         return self.latest
 
 
