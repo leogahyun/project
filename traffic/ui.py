@@ -326,7 +326,7 @@ class Dashboard:
             self._overview()
         else:
             self._controls()
-            self._panel(demo.fixed, 27, "고정 신호", BLUE, fraction)
+            self._panel(demo.fixed, 27, "비교용 고정 신호", BLUE, fraction)
             self._panel(demo.q, 649, "강화학습 신호", TEAL, fraction)
             self._footer()
         if self.error:
@@ -343,8 +343,8 @@ class Dashboard:
         demo = self.demo
         if demo.training:
             volume = fresh_volume(demo.training.volume)
-            text = (f"{volume.station} · {parse_time(volume.hour):%m/%d %H:%M} · {volume.count:,}대"
-                    if volume else "D-10 미확인 · 유입량 가정")
+            text = (f"화랑대역 {parse_time(volume.hour):%H}시 · {volume.count:,}대"
+                    if volume else "화랑대역 차량 수 미확인")
             label(self.screen, text, (264, 136), 13, INK, align="midleft")
             episodes = demo.model["metadata"]["episodes"]
             label(self.screen, f"상시 추가 학습 · 적용 모델 {episodes}회", (487, 136), 13,
@@ -384,8 +384,8 @@ class Dashboard:
         if key not in self.maps:
             self.maps[key] = MapView(sim.site, (x + 9, 234, 586, 351))
         self.maps[key].draw(self.screen, sim, fraction)
-        if name == "고정 신호":
-            message = f"양 방향 녹색 각 {sim.site.signal.fixed}초"
+        if sim is self.demo.fixed:
+            message = f"실험 설정 · 양 방향 녹색 각 {sim.site.signal.fixed}초"
         elif not sim.last_action:
             message = f"첫 판단 대기 · 최소 녹색 {sim.site.signal.minimum}초"
         else:
