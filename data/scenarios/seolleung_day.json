@@ -1,0 +1,46 @@
+{
+  "name": "낮 · 시간대별 유입",
+  "duration": 240,
+  "demand_basis": "일부 접근로는 2024 TOPIS 시간대별 통과량을 가상 차선 1개로 환산. 나머지는 가정값.",
+  "demand": [
+    {
+      "at_s": 0,
+      "per_hour": {
+        "west": 230,
+        "east": 563,
+        "north": 200,
+        "south": 195
+      }
+    },
+    {
+      "at_s": 124,
+      "per_hour": {
+        "west": 260,
+        "east": 563,
+        "north": 240,
+        "south": 240
+      }
+    }
+  ],
+  "speeds": [
+    {
+      "at_s": 0,
+      "kmh": {
+        "west": 42,
+        "east": 44,
+        "north": 40,
+        "south": 39
+      }
+    },
+    {
+      "at_s": 95,
+      "kmh": {
+        "west": 47,
+        "east": 48,
+        "north": 45,
+        "south": 46
+      }
+    }
+  ],
+  "source": "data/traffic_volume_sources.json"
+}

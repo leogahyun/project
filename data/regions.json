@@ -1,0 +1,36 @@
+[
+  {
+    "id": "gangnam",
+    "name": "강남구",
+    "site": "seolleung",
+    "map": "data/maps/seolleung.json",
+    "title": "선릉역 사거리",
+    "locality": "선릉역 일대",
+    "volume_sites": [
+      "D-42 테헤란로(선릉역)"
+    ]
+  },
+  {
+    "id": "nowon",
+    "name": "노원구",
+    "site": "taereung",
+    "map": "data/maps/taereung.json",
+    "title": "태릉입구역 사거리",
+    "locality": "태릉입구역 일대",
+    "volume_sites": [
+      "D-10 화랑로(화랑대역)",
+      "D-13 동일로(노원역)"
+    ]
+  },
+  {
+    "id": "seocho",
+    "name": "서초구",
+    "site": null,
+    "overview": "data/maps/seocho_overview.json",
+    "title": "서초역·교대역 일대",
+    "locality": "서초역·교대역 일대",
+    "volume_sites": [
+      "D-37 반포대로(서초역)"
+    ]
+  }
+]

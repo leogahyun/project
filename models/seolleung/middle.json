@@ -1,0 +1,2244 @@
+{
+  "version": 1,
+  "actions": [
+    0,
+    5,
+    10
+  ],
+  "metadata": {
+    "site": "seolleung",
+    "snapshot": "middle",
+    "episodes": 250,
+    "new_episodes": 250,
+    "seed": 2026,
+    "scenarios": [
+      "shift",
+      "morning",
+      "day",
+      "evening"
+    ],
+    "training_inputs": [
+      {
+        "scenario": "shift",
+        "seed": 255818012,
+        "arrivals_sha256": "08ab80b45a56d52263f3305ad32bdb6aeac57eacf79b206dd32c6573400a5a8a"
+      },
+      {
+        "scenario": "morning",
+        "seed": 686097736,
+        "arrivals_sha256": "2db819a219154a70c202d1145ff0dedd0160497917bd98b78fb3d2c43093444b"
+      },
+      {
+        "scenario": "day",
+        "seed": 1079154365,
+        "arrivals_sha256": "652de799817d45a1019e783bee63d2e4a5db0e3354ad48c79110dad6bf7b6d83"
+      },
+      {
+        "scenario": "evening",
+        "seed": 2043002638,
+        "arrivals_sha256": "0e1bf88e74f76c0147a59308f7361cfa146e00d422e0c353782354ab4138be7f"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1099140909,
+        "arrivals_sha256": "319b82f4c4d814c6817549dc5a417100a177c2141951947150bdb423e0d68f13"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1389857499,
+        "arrivals_sha256": "757b1aeca21bfd6e058f2981322889d625e1ec1862b639fbce270d852cd6a639"
+      },
+      {
+        "scenario": "day",
+        "seed": 1846847192,
+        "arrivals_sha256": "eb42b3cddd2ee47367c4eb8f2feb64ed98fe140001a49b9792372c284314f7bc"
+      },
+      {
+        "scenario": "evening",
+        "seed": 2046455860,
+        "arrivals_sha256": "5e87ff850535a1d111ee6eb226a78d8e4c054170cc552abea717b11b8f29df1f"
+      },
+      {
+        "scenario": "shift",
+        "seed": 220420946,
+        "arrivals_sha256": "38a6db5e55457c64d726f74f063b421716309596c6fb202abe3d3ec39003acca"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1898642805,
+        "arrivals_sha256": "f3a266c974dd2be4f7e8c8a25898f0c69d03fc3a510ffcf119813ecf4d78d109"
+      },
+      {
+        "scenario": "day",
+        "seed": 479509921,
+        "arrivals_sha256": "aab74c4116ba555656deda41a7c895cc3f8d01362ac49baf855582dfc0551ed3"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1921593681,
+        "arrivals_sha256": "e51761e9a8230fa04bc26848efe047e3518396a1442d48758570e3ca787a81bf"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1290713502,
+        "arrivals_sha256": "18c612016c529163671954bbe7e7e31390f60c7a1d0b044b6deebb6bbe40b7f7"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1334636946,
+        "arrivals_sha256": "9f04b6245c95fb9c025289ce7d71bb0da95121a283d6b2af5c0f7e804c96703b"
+      },
+      {
+        "scenario": "day",
+        "seed": 1195211396,
+        "arrivals_sha256": "a8b1650b198aaed1abf1d5dd59f9e41cd188fea6ed49f3839c1cd268ce0fdc29"
+      },
+      {
+        "scenario": "evening",
+        "seed": 903273729,
+        "arrivals_sha256": "4985ea8a99cfd44f508ead8d01db9476272c216d8a73902c2cfd60a0b1b03a60"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1682291530,
+        "arrivals_sha256": "3d7d050b529507657be58b9276f7a1dc8ff9f297b2bd232ae3d3aff3c827857d"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1229592151,
+        "arrivals_sha256": "557a4d5a8bad9a3864f3198a95a6f2bb0e9e95121544a4ff55f2ea58516abd9c"
+      },
+      {
+        "scenario": "day",
+        "seed": 1176426139,
+        "arrivals_sha256": "0dcbe86bda9bf8738719bd4dd5e1b3ae79711d995d2a92e83182737717002ad6"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1809053942,
+        "arrivals_sha256": "912b32a7f5573459203114159c984bfd497e4e870840f26937428d90f6d295ef"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1568830540,
+        "arrivals_sha256": "fe522823ce539203733b7e78fed0bda139a2ba33b5ec3c1fc5e2d12889de7a44"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1667686916,
+        "arrivals_sha256": "2b8f54d00f1cee66a5bf9cd2b510b66a6a4747a37621b960389d518a8851467d"
+      },
+      {
+        "scenario": "day",
+        "seed": 1649525103,
+        "arrivals_sha256": "839cf764f2dd72872a5eaaf14efd2870a3f49bae64001e343e3e38b7c108eb3e"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1054219172,
+        "arrivals_sha256": "9fa8485e1bae45af92f22a57f865e0d5e0e6d71763efac820222c13b86ffebbd"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1612825966,
+        "arrivals_sha256": "e4df5d62738cdf96f8e87d075036c7fcad563dc7bfc34fc960bb6968e001a3d7"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1660171149,
+        "arrivals_sha256": "0f0cbfb6ca007d08da4657c16f2359bf57ff82f05c8943834b0773ce5d7b95c4"
+      },
+      {
+        "scenario": "day",
+        "seed": 1259553923,
+        "arrivals_sha256": "5d22a05fb740f1bc38e9793f990d2141f20d8d5d1a416f84adf12fa01f408b04"
+      },
+      {
+        "scenario": "evening",
+        "seed": 947254293,
+        "arrivals_sha256": "02c5b5e1b4ec2e05a8e90573d26cf7a15eabb1044010e238f48c1e403db683f0"
+      },
+      {
+        "scenario": "shift",
+        "seed": 515264513,
+        "arrivals_sha256": "5d8d085edf6d83fc4cebae38ac4dfc9c26eecd867de6425de3e520d5d9a52487"
+      },
+      {
+        "scenario": "morning",
+        "seed": 5453529,
+        "arrivals_sha256": "0b961b6c600a047a302bcf81386e0dbaf80ee7b1126adf0b62c3d874b9de9c78"
+      },
+      {
+        "scenario": "day",
+        "seed": 1319003654,
+        "arrivals_sha256": "771abcfdba9a8973060524027f2576f06b254ced3836ac858af0d760ab2db43c"
+      },
+      {
+        "scenario": "evening",
+        "seed": 173362760,
+        "arrivals_sha256": "e00154714fa0ecdbe85914fcbd60e7192759119b375e25e65d1918c7c250d8df"
+      },
+      {
+        "scenario": "shift",
+        "seed": 237814922,
+        "arrivals_sha256": "9099d7232886093a4f6dc6161d8ec3d818772bd264860ec0b240e615bbc2d2e1"
+      },
+      {
+        "scenario": "morning",
+        "seed": 616853656,
+        "arrivals_sha256": "cf46fb770239b66c2861c6490991be92f963dbdd5151dc1d0bd83748d5518116"
+      },
+      {
+        "scenario": "day",
+        "seed": 1753991654,
+        "arrivals_sha256": "1e62d720135bf8c2aef92fc0158c0ec77c407d9602310afee81e039ad04fb1f5"
+      },
+      {
+        "scenario": "evening",
+        "seed": 210574253,
+        "arrivals_sha256": "7b62b443b3445331418e89bcab912b762db28e3864f9e9ec11d5af68604f4d2c"
+      },
+      {
+        "scenario": "shift",
+        "seed": 965636409,
+        "arrivals_sha256": "a3a53702238e9a9815c1ab05a757436af5e97e57577d884c1fe9a55055a0d689"
+      },
+      {
+        "scenario": "morning",
+        "seed": 24682076,
+        "arrivals_sha256": "d54cfef7d4e71dd650cc1aeb0f49f91ba2e2c4c32c1f9abeaaff3300c8f9ff72"
+      },
+      {
+        "scenario": "day",
+        "seed": 1749699547,
+        "arrivals_sha256": "03cf7c58dae3c50644d2fa8b593cb879238233864198696ce7e67fb508f30ff6"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1913339923,
+        "arrivals_sha256": "d05ec0a21c7f88fafeb6c963d44eaf0386c6fa4e823b97f9e748636d590d9949"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1471418688,
+        "arrivals_sha256": "120d72782c11c7f3f672aa2d61cce1437ef27e38197af0c1ffd93ba9dbcc0777"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1052892747,
+        "arrivals_sha256": "5afaab432a23a0359c2bf651461d5399f5e00c6724fbc976404b32e6b1f9031f"
+      },
+      {
+        "scenario": "day",
+        "seed": 1458986648,
+        "arrivals_sha256": "b21251a1b479ee74260402055b6eb1b77c165aa94e7e7412f784702ac9b505a0"
+      },
+      {
+        "scenario": "evening",
+        "seed": 674820503,
+        "arrivals_sha256": "5e43310405d485599ea4c6124dbb45738fd0b5a6126727c52a6b0af1f69ad730"
+      },
+      {
+        "scenario": "shift",
+        "seed": 451464016,
+        "arrivals_sha256": "fd185500a5f3ef54f710259bbe3a68886983e8ce86277457c5c9eb24f0ff7a91"
+      },
+      {
+        "scenario": "morning",
+        "seed": 853027878,
+        "arrivals_sha256": "b4733598ed09b6a99cbbb46d31cc48edc8ba5f1e009de0699ed1f60d009cb33c"
+      },
+      {
+        "scenario": "day",
+        "seed": 540130286,
+        "arrivals_sha256": "a130fc177bab21b06bdfc47f19384c597ae39a51ba73bc33b65e33fe0d6455de"
+      },
+      {
+        "scenario": "evening",
+        "seed": 746599540,
+        "arrivals_sha256": "8436cdb1d19046527ca275c29925a68db53c8b2e333227b00150c4ce994c779e"
+      },
+      {
+        "scenario": "shift",
+        "seed": 2104355732,
+        "arrivals_sha256": "b7395c669543bed1eb6424e86b1df31a21c3f364b127f57e6e3b0a166636c417"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2145151124,
+        "arrivals_sha256": "f69b1cb1271202b2ffb281f53c238330618350ceeba7e7cce3f600eaf77651c4"
+      },
+      {
+        "scenario": "day",
+        "seed": 1995703702,
+        "arrivals_sha256": "6200dba34414a38abe52f0cf36e00572c0e9dd2bab4b5958acdd2c1f253377a2"
+      },
+      {
+        "scenario": "evening",
+        "seed": 765880089,
+        "arrivals_sha256": "6994f93a4dac33e2f1733800e274bf239bb31b9c94a954ba50f632b4110e2a57"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1729026176,
+        "arrivals_sha256": "482fdd57947bdbfc5c4d4a4b58833579681cb515c50d448c055e74611c5870c8"
+      },
+      {
+        "scenario": "morning",
+        "seed": 808203637,
+        "arrivals_sha256": "41c85fd8b451f0728a59b8995835503aec0f008b21658d9bea3a067d565338ae"
+      },
+      {
+        "scenario": "day",
+        "seed": 2146755173,
+        "arrivals_sha256": "976fc3252b9341e714dc411e9f7fcec73a050c158b326fa5e3237c04641f800e"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1601968196,
+        "arrivals_sha256": "ee00124f0c5096420ab0e773d85889ef2c92551f9fdb6b3d0ed0fdf76644b8f7"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1102930858,
+        "arrivals_sha256": "35429b642adfdbc1355a00f71b159e8e68aa6bfd34e5b74b2a6f9e271a44faea"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1369497814,
+        "arrivals_sha256": "cfd927b2e20c2f3b8305ace9a89eff5d4628bdd15f77519d57148b7c49129eb4"
+      },
+      {
+        "scenario": "day",
+        "seed": 163905737,
+        "arrivals_sha256": "fb41ae09d8d2e7fd5ea24b8c154277e52f84076eaadb59d0cec90b554e8433f8"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1552881148,
+        "arrivals_sha256": "56d755670ad699272d480b25433bfc83354e351153eeae29accf4737837a2c62"
+      },
+      {
+        "scenario": "shift",
+        "seed": 731001786,
+        "arrivals_sha256": "e3a046e9666c6e9625f43f5b39b53120c89344cd38fffaa732bc56017a462d86"
+      },
+      {
+        "scenario": "morning",
+        "seed": 192564048,
+        "arrivals_sha256": "544336c22b5fa882fc5dad16378fb46122e175e7ec5d1b15533dd864c949e6cb"
+      },
+      {
+        "scenario": "day",
+        "seed": 1197125911,
+        "arrivals_sha256": "c98837f111313dafb1aa2912a25b6741441fe42a3060f7f4ee8b04de882f91bc"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1155495198,
+        "arrivals_sha256": "08932a35c74abf21f7aa012ca992871cb3c9e8b5bf4c7bbb06652e2487769d15"
+      },
+      {
+        "scenario": "shift",
+        "seed": 627336944,
+        "arrivals_sha256": "a7fc24197a1afcc70827d35dcd0356c0dea2afad812240cf4e9d004d2a477759"
+      },
+      {
+        "scenario": "morning",
+        "seed": 617630462,
+        "arrivals_sha256": "e75890a4212f2b5f92e83d4509027d9e1c932254cb0869ab5930e8b70f8c04ad"
+      },
+      {
+        "scenario": "day",
+        "seed": 982371665,
+        "arrivals_sha256": "c73e632c0184a00ff73e97ab5b5da222d8a8396a0b61bfdc2eb1dc268276534a"
+      },
+      {
+        "scenario": "evening",
+        "seed": 302565436,
+        "arrivals_sha256": "913a8a57866f52bbf51b977ed0a27cabefffd10bc246cb4cf08b12ec0344d3a9"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1882225314,
+        "arrivals_sha256": "a0dffd64a738b3ce7f10d69ade7f7914e2b66a38a713a60a8f5366d1f64e4910"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1384696813,
+        "arrivals_sha256": "fe993288dfeb55f553a202ce8d31dc897eb76a508e9661e05ad8fc43b9c9e223"
+      },
+      {
+        "scenario": "day",
+        "seed": 1511785962,
+        "arrivals_sha256": "5bc9eef74fa4304b0d81d0d66504da2ef3fc5a1bb6a2efa7261ed2c0a160e3da"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1538500248,
+        "arrivals_sha256": "d607193fc4a6d7070ca05e86daa6ccc8ce113725d051a4cf71779174e395e2cd"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1240017224,
+        "arrivals_sha256": "adf29473b39c007c45d02cc9e346361723708ecae6227f084bc1eead729e49fd"
+      },
+      {
+        "scenario": "morning",
+        "seed": 663579678,
+        "arrivals_sha256": "ef105bca729b8fb404b60cd3c83e07c1cf41f5b7e4333d1172f0ef70cd2e281f"
+      },
+      {
+        "scenario": "day",
+        "seed": 53137243,
+        "arrivals_sha256": "f906ec577bbe8f1e7aedf2d8af313f8e57888ad3cf72db08b9e55796e29a4e9a"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1820634324,
+        "arrivals_sha256": "bc2b22933950b2094e6a42945ee1b408cdf6749a985d72400637cab51b1572e5"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1526575232,
+        "arrivals_sha256": "71127c79c484d4f51fb6b063d4d0d41cfb02976fe38f06536a6fdf177686db59"
+      },
+      {
+        "scenario": "morning",
+        "seed": 792097753,
+        "arrivals_sha256": "94ff4364a26219ce8e87abcede42047199d4307a8d91b6d16dce4dc2b5fa98e5"
+      },
+      {
+        "scenario": "day",
+        "seed": 780711006,
+        "arrivals_sha256": "74a175035b1827b444279abf4a6c2b0a63cfa0d1d3bd7b2ec69fc4918af0a8aa"
+      },
+      {
+        "scenario": "evening",
+        "seed": 990155697,
+        "arrivals_sha256": "bf7be897e21d098e9909e81d8d4f390a74a9e21b389ca6b37d3dca79c342e056"
+      },
+      {
+        "scenario": "shift",
+        "seed": 906715172,
+        "arrivals_sha256": "256475735efd6dfb15b5ed455143f1cb9a71cf46f6610163bf046ece5fcba6e0"
+      },
+      {
+        "scenario": "morning",
+        "seed": 194752841,
+        "arrivals_sha256": "09feb9118842c8fb4bdd5d1c5bd2f563782a0f82086ebabe32952ddcc47a8005"
+      },
+      {
+        "scenario": "day",
+        "seed": 856369187,
+        "arrivals_sha256": "3a899fc9ae8841973bd186572dae25b20ff2c37178696f58ab9d12e8adf99f6e"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1913350774,
+        "arrivals_sha256": "a2f291969bcf37440b10e9adc48b99c955c4789b135335ef5dad7aec37841741"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1257829432,
+        "arrivals_sha256": "f03ede3f179e66e984ddfa474e109d8bf84281c763bd8897c3ba4b82167381f5"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1190680226,
+        "arrivals_sha256": "df7ba0d9bd7c279f19f6c9e6ad30382dad5ac37754e3d14cfb8c765f6a009041"
+      },
+      {
+        "scenario": "day",
+        "seed": 1070434140,
+        "arrivals_sha256": "6cf5b19d8f8c762eb41c7b28e9e096269db70f3893b796e28e02fb59b0a9e15a"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1862362112,
+        "arrivals_sha256": "ecf22022ae9255d89347e644d27bbc70359c6a3647b3cf154c84063d3b7dba89"
+      },
+      {
+        "scenario": "shift",
+        "seed": 250080054,
+        "arrivals_sha256": "a78280ce61bfdac84a27dfd193247271977d1be7972a1ba3f41f38a91f8be586"
+      },
+      {
+        "scenario": "morning",
+        "seed": 913642563,
+        "arrivals_sha256": "18b4c553f9e9f1106e9a84646faca6057fc038bf7b50948b01a8cd98789a5bf3"
+      },
+      {
+        "scenario": "day",
+        "seed": 1087407122,
+        "arrivals_sha256": "b0249fbb170244615fb5ee5a37d54fdca0d075d87bf176a90bbb48a86551a8cc"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1723471376,
+        "arrivals_sha256": "5e9ffb2691447f9eb1ed9dace0a9f6d3d9fb8ad1fabb7036566092b41c6f4e4a"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1610937965,
+        "arrivals_sha256": "8c0fc2be291160ebcfcc2e6a64c8ed4105b0ff01f04fc276bdc2dadd9b237617"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1861351616,
+        "arrivals_sha256": "1d78d6306d8a9ccb268d56050f9cf1b1b00f55a560eaf401274395a663eef288"
+      },
+      {
+        "scenario": "day",
+        "seed": 1288855048,
+        "arrivals_sha256": "849f522a8628b29d2e08228c54f8f3bab12c53ea1c8e12794a4dde947e44eeb0"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1879989039,
+        "arrivals_sha256": "87427c3451651eb2a5fb50f2cb4586ab0d6d6bc6e44f5a835f46b0a7a9b212f3"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1054490422,
+        "arrivals_sha256": "5d738afded011939a84d7bf0438e99c1596a9d6a761816cb4eeee394ba76725c"
+      },
+      {
+        "scenario": "morning",
+        "seed": 855027202,
+        "arrivals_sha256": "0548b8230a69e691abb8e4278a31efc13f22225cb1c57b9abff75583e87c6ea3"
+      },
+      {
+        "scenario": "day",
+        "seed": 1968725597,
+        "arrivals_sha256": "ea1a76b6f69c4dcae6e6e623c6b71c064a771ca53cdb2313d288b829f8d948b2"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1126693129,
+        "arrivals_sha256": "e9d34bb0bf6556bf914f044d03592622cb8bb2dfca34f70be17a1a39ea46d430"
+      },
+      {
+        "scenario": "shift",
+        "seed": 555442531,
+        "arrivals_sha256": "639cc194b010584e6bd6c8c01239d059e73b541a100c89c83605aa30cad61f8c"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1813512072,
+        "arrivals_sha256": "79918a693be5de581680bd1149f441550ac057b59dc203c99f09043f5345fa70"
+      },
+      {
+        "scenario": "day",
+        "seed": 901880436,
+        "arrivals_sha256": "626fe694ce2cd10053dd2e5da550880763e4a2ad439c6419dee5eebd9e760714"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1211191041,
+        "arrivals_sha256": "0d86417cf16e5ccd605efd3b78d84e1ea5f50b01a7f544c0d0a3633767276556"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1989080475,
+        "arrivals_sha256": "b6011efc4963c51ba6b2168abcd86f028956ece30e1cc5cf3e3c37da3370233f"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2109404695,
+        "arrivals_sha256": "ffc4eac0540ac6dbdead628e217163d4921af6217f745fee3c3984c50d8289f6"
+      },
+      {
+        "scenario": "day",
+        "seed": 1029062623,
+        "arrivals_sha256": "4f484f12dac2de417b2fa785685c239352f724e5ee424f78eb24545b0aa63402"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1101560495,
+        "arrivals_sha256": "76310e83eae134ed7ab1ee458b7a78d7633ca2670a7de6aa0c988e31baebd8f5"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1112379114,
+        "arrivals_sha256": "d3f9db093fd448cd31c72b18f5d43a13c2f63576c919896848042851456fc257"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1729106172,
+        "arrivals_sha256": "01687780e7e8e8219f01723d2aef6d7f2338026215280aec2424efbb8c8e47f0"
+      },
+      {
+        "scenario": "day",
+        "seed": 54504846,
+        "arrivals_sha256": "8c4df988193fb7f9ca1c2ca6f14b47488a4667e71953a19041d65a2d30345676"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1235921712,
+        "arrivals_sha256": "af30594bc5a5880d6ad34d827918c1379edfd429d6db4a705f08e917bd2abfc7"
+      },
+      {
+        "scenario": "shift",
+        "seed": 482173473,
+        "arrivals_sha256": "80b8a0784c23d5b298ac466c8df9d744dfaaefce50d4c01379db74a2d7864f30"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1644609514,
+        "arrivals_sha256": "0aae6c1a2c54b48d5bc9f5d29241afa5447a9f04247363092b905635bfd923b2"
+      },
+      {
+        "scenario": "day",
+        "seed": 277032927,
+        "arrivals_sha256": "afa3d574f301eb9e20affcdfc6761f493c0b763793ae978a9d81a2a37c5dbcbd"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1756935534,
+        "arrivals_sha256": "659f2892a7b1e1c35a350b69abbd6f65f2365fac4a3e2901a26dacaf8f8a68f0"
+      },
+      {
+        "scenario": "shift",
+        "seed": 104995539,
+        "arrivals_sha256": "acd890617c720281feaab296025b893aa98af63580383fed4abbfad97381d224"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2067446749,
+        "arrivals_sha256": "c86b7c5a3fee0ae62d679dcd288a8bb4a908b364246038802b6e946338bfa970"
+      },
+      {
+        "scenario": "day",
+        "seed": 1513261498,
+        "arrivals_sha256": "bbb42ecea5240f210de93e09710a4f9e4fc9c434b26249cc97b0c991334a5cd8"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1123608960,
+        "arrivals_sha256": "2500a6a909c76ee2986c9edd3d3e23cc8c67ea39f5f2ead1e517772cdf1ff065"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1904451442,
+        "arrivals_sha256": "dfb74076d4b3942d32a352ec6eba94e23b29607b38ae8473f356e4a26990a44b"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1439861399,
+        "arrivals_sha256": "3aed8f863a0c2b43b37df845045ed07773099b1b45301bc694c11679d607a0c7"
+      },
+      {
+        "scenario": "day",
+        "seed": 220291103,
+        "arrivals_sha256": "dcc8a5bfa508d28274df61d4cb42a6244f2bc2b0f06472275e2446ad283c267e"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1540416183,
+        "arrivals_sha256": "5af344e0c595646bd10c4b2b979803ac33de3f09a4b7f716d35c0f4d24fc5b1e"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1336409893,
+        "arrivals_sha256": "debe962a6740cec8119087ee729818fa1d4a9645f258644341773dad067a6074"
+      },
+      {
+        "scenario": "morning",
+        "seed": 922159941,
+        "arrivals_sha256": "08710f0d9988c677a431ab5b537980885f7fd46abe0a95192bf74f5d8a32404b"
+      },
+      {
+        "scenario": "day",
+        "seed": 1009413914,
+        "arrivals_sha256": "098684d1d965fff53561a59b31b15a576d0345dd8a8b5e44a42b155b8c416930"
+      },
+      {
+        "scenario": "evening",
+        "seed": 305838638,
+        "arrivals_sha256": "dfe61a650fcaf9d6e6a02a6f9d450525505ea2a8c22ff36fd490665773f99b7b"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1035340019,
+        "arrivals_sha256": "6e88fe6716d9a7e123e452b46e91cceec76d2f1fff88571b38f046795d31cd04"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1899042997,
+        "arrivals_sha256": "30504ceaa5121d975fabf019850c873b3de6618c05b763e1f8c375a56a1430d8"
+      },
+      {
+        "scenario": "day",
+        "seed": 491627564,
+        "arrivals_sha256": "5fdb2d7a4825b574335519348323357c218971878a2e28393ec836b845fa2764"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1824573884,
+        "arrivals_sha256": "ff556fe5c7c7d2c58fc6b325b04e1d21ce3a2bba850e70e0b24d411062691a65"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1902511321,
+        "arrivals_sha256": "2a1aaf444b2ab8a136b077f320edba79819d628acca310dc85576a729caf46f8"
+      },
+      {
+        "scenario": "morning",
+        "seed": 262031465,
+        "arrivals_sha256": "4d08a9b84b752e73ef01b5058821335c8db65449a45cc0f40c73e219377f770c"
+      },
+      {
+        "scenario": "day",
+        "seed": 1345774660,
+        "arrivals_sha256": "faff111991c160a3c3f2d54d3bc08ee88682ef1487fc37a2a1b9d6ae224c9424"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1504767518,
+        "arrivals_sha256": "be5cec7f1dcd1e384f108c1bca6218761642493c17db6515b1d017973daf96dd"
+      },
+      {
+        "scenario": "shift",
+        "seed": 980972682,
+        "arrivals_sha256": "4f53066eb73a05454145707a1691dfaf99f6a8eacda10dd21577245b04d45db6"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1448065023,
+        "arrivals_sha256": "0cc1f2db86da4bae591649a49eeb447bc2db680e58175bf91da5dd9556ef9016"
+      },
+      {
+        "scenario": "day",
+        "seed": 1008051781,
+        "arrivals_sha256": "7627aaa0bfa9cfabc03eaeb1d3e28c9f41df4dbd83a70a397173f0fb685367c4"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1534437130,
+        "arrivals_sha256": "fc676f6315fcd4144e659d2ca0f1194bc0b7c37909e6fcce8224b2e968304766"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1996020221,
+        "arrivals_sha256": "421ccbc72652155c9b821fb1a4103771e4ea3339c1602d0dfa69e5db4e961255"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2060782655,
+        "arrivals_sha256": "54110c531eaf95b0e2f815b3610049879dc87615e3f2885d3a3990148ffa5e60"
+      },
+      {
+        "scenario": "day",
+        "seed": 2120060867,
+        "arrivals_sha256": "4c73ac652decaf18851d6e836f4568a81356baa7d829e8e58fb11d39e949eccf"
+      },
+      {
+        "scenario": "evening",
+        "seed": 2102109990,
+        "arrivals_sha256": "bf2549ec27e7d11a40cac28a3e2ef88c3bfc3ec4b79cc18d578860c8917618f0"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1171746371,
+        "arrivals_sha256": "b1b6a2f3f5b0ea07951c2af33a2736d2614a396138563727aa9e33c3a83416fc"
+      },
+      {
+        "scenario": "morning",
+        "seed": 539042311,
+        "arrivals_sha256": "12aecd6067bdd6f2ebae97e5d8146f8f00b1f1f3b13bb9758ae8e462a5f797b9"
+      },
+      {
+        "scenario": "day",
+        "seed": 1202162871,
+        "arrivals_sha256": "0b1d9bbc28324d21842b91e4e125d6a7087f30e80f433ba2aadc1b127e7ca68f"
+      },
+      {
+        "scenario": "evening",
+        "seed": 863470907,
+        "arrivals_sha256": "b00388852e468425287a208e8432cdb4579e69ce0570ba3c65d797c1c49d88cb"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1438295611,
+        "arrivals_sha256": "a032721f01067c38fadc71a724b716c4199d242c60839008dd7afb266fa604d0"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2143665221,
+        "arrivals_sha256": "8d74252251a8a146612d15a3b126b756362d422b0985257a8a3c816acabe2cf0"
+      },
+      {
+        "scenario": "day",
+        "seed": 660634554,
+        "arrivals_sha256": "93893e81170d1f37e0e00065b5dce9ba2f625a341c3e08986d255ccfe0dc06db"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1177150015,
+        "arrivals_sha256": "acdb9e42ad7a7f0832fe37b0325e4453e6c8408cfccea99210b242edae0af0d7"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1717571718,
+        "arrivals_sha256": "278469ab011ca5f7f1188b038734338571d20adf6b09372d2c0bc472310f4172"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1389137789,
+        "arrivals_sha256": "09e38fcd684c14293f3333c46eb5b1b6839a8cc0995377d974bc42fbd3f5f5c0"
+      },
+      {
+        "scenario": "day",
+        "seed": 1077831208,
+        "arrivals_sha256": "7c78589425d0b79fb5d1ec8d8c1b8e90b0b280a7cbe7076cf9ff47c529c40a19"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1499648417,
+        "arrivals_sha256": "a2e25779976e7abf24bc69d83670512a7691f11bfd5440023d65735d530cff90"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1028424678,
+        "arrivals_sha256": "3a8b5f2ae6a6a7f713ed6c227b728c1c30eee8e6169ec00aae30947cbe4e0207"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1728507347,
+        "arrivals_sha256": "8e9fd6a236b774d96a4e578e62a7a74e7c6abb2aa74f2e5fa4ca791854eb1c5d"
+      },
+      {
+        "scenario": "day",
+        "seed": 1899352117,
+        "arrivals_sha256": "07318ec64608bfd031c83f4ebecb5c775686cc184a55ed760259155256598f99"
+      },
+      {
+        "scenario": "evening",
+        "seed": 863186851,
+        "arrivals_sha256": "d3d5be7a71555839ab67c53dffd2935d8838d7c005b6ad994e8090975d66ffd0"
+      },
+      {
+        "scenario": "shift",
+        "seed": 930013948,
+        "arrivals_sha256": "438d059c53038e03743b86ee61d81c38ab5828db9d1065b44da952c7ce7c6be3"
+      },
+      {
+        "scenario": "morning",
+        "seed": 434942740,
+        "arrivals_sha256": "e62beeb3823be98922c8465df7eb48554e469944ac2805f5bc771e5564463fa6"
+      },
+      {
+        "scenario": "day",
+        "seed": 632173658,
+        "arrivals_sha256": "d20d2329ebe036304c48fcbcbfddde8032f9b9a004f47d1e03ed42c36e73c99c"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1786377095,
+        "arrivals_sha256": "56906b404a15aef1561fc46af37f06d2d3961290c3bb27934ef1a4d855ec7e35"
+      },
+      {
+        "scenario": "shift",
+        "seed": 577760281,
+        "arrivals_sha256": "e748f76b1b0c0bc47d5f7216c99e9dba9ff5d58f2926a51725c7ba3fd3599a6c"
+      },
+      {
+        "scenario": "morning",
+        "seed": 19931982,
+        "arrivals_sha256": "1c48a1a5a72e3abed597053dca8e784b59958f0e12742d1f5c11dd1f91d5362f"
+      },
+      {
+        "scenario": "day",
+        "seed": 71111610,
+        "arrivals_sha256": "4c41650ad08365715ac12cfe84ca3e4f8c6784bdf652cd947821e7a081fe263a"
+      },
+      {
+        "scenario": "evening",
+        "seed": 321796997,
+        "arrivals_sha256": "95d8b82e772871bb627d26bed591cfff81bbc0ba438fe8cb1f5e4a1654a27942"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1407991992,
+        "arrivals_sha256": "19e87d6772ff99b4323f68dd59d49c16793d64a249ec9aa0a7023a7938d72e2f"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1894180100,
+        "arrivals_sha256": "68a11351b42bb275b94a0f1b184239b7c0764d36e3bd44a1f41b141c8af6e071"
+      },
+      {
+        "scenario": "day",
+        "seed": 1282644459,
+        "arrivals_sha256": "a12b6c169d3d1c290f21aa94fc480470db68c63f5b3a2cef7eb880b110ce9c62"
+      },
+      {
+        "scenario": "evening",
+        "seed": 2063035721,
+        "arrivals_sha256": "3f0ebab2fdb5137746b228137bd43a0fabcd875203b05508ad64f46065506a4a"
+      },
+      {
+        "scenario": "shift",
+        "seed": 984045962,
+        "arrivals_sha256": "47f2a3dc220e92e49a15f352a137582245d3646cace89eff7a0f467d0c92c5eb"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1725613908,
+        "arrivals_sha256": "91a5cdca6fc12818729f0ba7810747db76e9e3f25f900b5ff37a2da17bd52a9c"
+      },
+      {
+        "scenario": "day",
+        "seed": 1122905156,
+        "arrivals_sha256": "002ec039b2abe877861ba907d9721328c8bca8103a1389bc8ef72e9a81b46654"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1990636524,
+        "arrivals_sha256": "56dcfb256249cbbb4c1df8d20534236c0f94df6d0c1dd71e6b11e9132e7431ec"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1051240891,
+        "arrivals_sha256": "dfc24ea13db27bb2c0ba53a27aa08a4d27bcd6739d73948a6dc5f8e621c9b753"
+      },
+      {
+        "scenario": "morning",
+        "seed": 772966375,
+        "arrivals_sha256": "601d2cc966028a7d793711980f38d8881e5540bcae626b5d422b053631270e1c"
+      },
+      {
+        "scenario": "day",
+        "seed": 1978937060,
+        "arrivals_sha256": "a0757700b2e6b587bfed92e200f1c73b5d58af0ff75c88a47163deea8f7c7683"
+      },
+      {
+        "scenario": "evening",
+        "seed": 429157915,
+        "arrivals_sha256": "91dc7b5c5653e1a234a2619dade3ced2e555db59e6a941e2c6f8ee8aade41e75"
+      },
+      {
+        "scenario": "shift",
+        "seed": 558593080,
+        "arrivals_sha256": "a495f9555aeca68da00b415c28870470d2254e07d52f94331820b86c8b81aad0"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1487460111,
+        "arrivals_sha256": "ea9746bce4ffee5ff5f95b2292a9f5ce7e539e3f53a6c327b7a960e4920774e9"
+      },
+      {
+        "scenario": "day",
+        "seed": 1042761780,
+        "arrivals_sha256": "be21f8870b9f6ecb35ced1541ddf85147fd306329a8e6f3fb272279f03b351e1"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1002146362,
+        "arrivals_sha256": "4548b3e23796174c2931da13a28cf1182e3366edb52c5ab0d9389f47b4905535"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1097947041,
+        "arrivals_sha256": "ca209c9d9da091419ef6db9d74de53af05ef5abb7276812046498297d04d4357"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1646492886,
+        "arrivals_sha256": "4b7a913cbe6c391bb2f52f5a33aa27764f5f34374d0043b20dab495b6ac2c96e"
+      },
+      {
+        "scenario": "day",
+        "seed": 1774204105,
+        "arrivals_sha256": "f9af1edde298013749b02a8eff1fd93e2ae34831c0848a94acd120b330ee9461"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1067646811,
+        "arrivals_sha256": "7a4a21e898df35a3424c3b60ec3a58a40478dbf9c61012a385d21a34a920b2c8"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1735089330,
+        "arrivals_sha256": "13fe82d8b711a21fd0db1206bb6e663b124b17d5769f81fcb26fc4bc4ec79781"
+      },
+      {
+        "scenario": "morning",
+        "seed": 932510728,
+        "arrivals_sha256": "4a3989f994cf0da803f0b170ae4fa9092ee8f610566b7cf9ab40f7c587cf0683"
+      },
+      {
+        "scenario": "day",
+        "seed": 1197957992,
+        "arrivals_sha256": "c5eaa6ac2dd54c03964e86cdeed7bc47af90e87062b979db99c4c8aae197f1de"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1425719118,
+        "arrivals_sha256": "5478ef3c3d0a4b94cca3282652cd716ef5e74aeb2da9fd225b669d79d9de2eac"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1948349390,
+        "arrivals_sha256": "ec00b8b796d0dc4a60ca897bb046d33cf83e3b74ae2ed6672a98bd8509f4f559"
+      },
+      {
+        "scenario": "morning",
+        "seed": 72208289,
+        "arrivals_sha256": "bd124455c732ed993d9fef47247ac7d0957ad68dcae1c435ef976613d82b7b8d"
+      },
+      {
+        "scenario": "day",
+        "seed": 1785434188,
+        "arrivals_sha256": "ae3d0c4255711ac93f7035cf448d6391b8f62c2bd685ca4ce091aa1ea15c200d"
+      },
+      {
+        "scenario": "evening",
+        "seed": 622928770,
+        "arrivals_sha256": "e246918e42071d8d7344d0ef5368e1fb3584733fe38ab57841e91c52af196c24"
+      },
+      {
+        "scenario": "shift",
+        "seed": 680025955,
+        "arrivals_sha256": "0f8d011b342b4bf09814c5038cb8fe917f9eb61a2435f8f5a9cdd2981cb570f4"
+      },
+      {
+        "scenario": "morning",
+        "seed": 982817868,
+        "arrivals_sha256": "2e32a3eb4769760ab0937d381e8262e1d60b59772ce35b51eeb4655900191c3b"
+      },
+      {
+        "scenario": "day",
+        "seed": 1968848123,
+        "arrivals_sha256": "a7e52cafd722d3927589f4e30c24a1a1f123618ed6c73abe3fbcfc5f99384923"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1743554754,
+        "arrivals_sha256": "a5c33db6243fc9155c573b1e7b292cc880414bc61b253f7eff20ac6135f97e6b"
+      },
+      {
+        "scenario": "shift",
+        "seed": 211266532,
+        "arrivals_sha256": "f36b53b3b992c70e9f91161b750defc0dd284b21b2091bccc565ac25b8daa758"
+      },
+      {
+        "scenario": "morning",
+        "seed": 941576439,
+        "arrivals_sha256": "20775f91d9e94e535bdb0a28929e070bf78a4d03f45d8478afa0cf367756d893"
+      },
+      {
+        "scenario": "day",
+        "seed": 1480341629,
+        "arrivals_sha256": "da4794a359ec4a7541a38f8aebb69aecd2eb85c1b74df61ced610f7cf7e9db29"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1538721649,
+        "arrivals_sha256": "1d4f917e1b9a82a8082d8a9960017c6632ef2a24f603471982c6d1be1d0c3d4f"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1685965115,
+        "arrivals_sha256": "bc3b5c34cb9dc5119e2fc2f3ec92b6fb98374aeac16640f794cda64871a75bec"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2066360848,
+        "arrivals_sha256": "7ec2fe7b01587e33cac419cd05b90982fde55dba5464fda4ef21188f4a318631"
+      },
+      {
+        "scenario": "day",
+        "seed": 1106336317,
+        "arrivals_sha256": "ebeee8f87068067d1c1d17fa0e17f8e0db37932c3fef0a4244b0445106028f33"
+      },
+      {
+        "scenario": "evening",
+        "seed": 555845666,
+        "arrivals_sha256": "abfc4fae7aadc2608db17812557771a614157bbe3c6a383a45658afcb61549bd"
+      },
+      {
+        "scenario": "shift",
+        "seed": 972649797,
+        "arrivals_sha256": "bca797e81ff8cf5b55e4593aecad33d118fc4acd4eada0f84a1db6b99224e2b6"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1979926760,
+        "arrivals_sha256": "fdf21d2b95d0bde069cfd5d6934dc856ac5ed00d7537098a3a8accd43587095f"
+      },
+      {
+        "scenario": "day",
+        "seed": 2072907690,
+        "arrivals_sha256": "c9df161804eb2901d6443f6e6f51b6e0ccd89bd1023b81006fc82c0d7f6d11cc"
+      },
+      {
+        "scenario": "evening",
+        "seed": 393104368,
+        "arrivals_sha256": "15faac132e0a61721dcc843a43fc6bd536d373a1e8b042afb66f4b485e1e0d58"
+      },
+      {
+        "scenario": "shift",
+        "seed": 2077201745,
+        "arrivals_sha256": "709cd938dc83f5cf2a4a4c8bed34f7a1d8a69361a47712e3ac64af6781ab57df"
+      },
+      {
+        "scenario": "morning",
+        "seed": 914358152,
+        "arrivals_sha256": "79e9393d0754245a0452e16704646b7bad7b4bb3a7225a85787f87f1d538ace2"
+      },
+      {
+        "scenario": "day",
+        "seed": 1809135636,
+        "arrivals_sha256": "62d2eba9aa432628173d50c458bb16b9ba5adc000c64ffae5a60e693e37b4498"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1563323070,
+        "arrivals_sha256": "3050b0f5f6ec05d449a90211ff891cf3f3f999ce125be8b0a267faad3c1caf9f"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1028968731,
+        "arrivals_sha256": "44397a63555c16e5a70fcf0689e96e3fa1f806e50fd38f9573cb5ef162fa070e"
+      },
+      {
+        "scenario": "morning",
+        "seed": 2018940527,
+        "arrivals_sha256": "1623f54945d9f92918ab040c0bcf6cfb48e1b107653ccc3011d1d08b00daa54a"
+      },
+      {
+        "scenario": "day",
+        "seed": 138082792,
+        "arrivals_sha256": "f0d5ede500e5bd41f64cbce4e77e500cc13763097d75ab771e1cfb970fb68bc9"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1392756745,
+        "arrivals_sha256": "70321807eb83ea638b59101321d7790a11ac1fd135f8e87eab411dfcfc4037f0"
+      },
+      {
+        "scenario": "shift",
+        "seed": 572241673,
+        "arrivals_sha256": "3ca10c8d157785d3f25ab352ea8a979f38244e1f51d7fd977a5e0946e881e03e"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1939753989,
+        "arrivals_sha256": "146c1de031c9973088368d169d76186a64992b4efc3a25ccf84a719ece149bc1"
+      },
+      {
+        "scenario": "day",
+        "seed": 1070360419,
+        "arrivals_sha256": "d0701baf1014acd34515c6d379479ee0dfdf768459cd436257bc1c2cc5a58d95"
+      },
+      {
+        "scenario": "evening",
+        "seed": 794855488,
+        "arrivals_sha256": "34d0a5cbb136d676d66423e23199eaf5c4d628a793f463926caffce7ce035da1"
+      },
+      {
+        "scenario": "shift",
+        "seed": 207591242,
+        "arrivals_sha256": "5adde0b89d3030436f87eb654056fce0adc64ffa07f41b23a321d9b09a914808"
+      },
+      {
+        "scenario": "morning",
+        "seed": 417881566,
+        "arrivals_sha256": "1e3b9a33b360e5dab36693713db49fd07bc7c8dcd128012a517b8b5627ac44c4"
+      },
+      {
+        "scenario": "day",
+        "seed": 1605364225,
+        "arrivals_sha256": "ddd3a2786403729585edcf0b383e5c99c9bf8224727eef28782dff5f5f57e643"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1839624537,
+        "arrivals_sha256": "81fe00edb08e174ca19c3bd120e3f3028667cd14c08b969cf51f4f6915189757"
+      },
+      {
+        "scenario": "shift",
+        "seed": 883293307,
+        "arrivals_sha256": "9dc0aa6a889de96ab85fb899d9ea6b727935505c2c78916060b116b9aa523f92"
+      },
+      {
+        "scenario": "morning",
+        "seed": 314312866,
+        "arrivals_sha256": "6ea0752e1ff31c696c17fb6357334e66d63937a42eb925aebd6c846c1cb5c7fe"
+      },
+      {
+        "scenario": "day",
+        "seed": 965078014,
+        "arrivals_sha256": "6cf6909da8097b035c5c40c4d4292f639e814668ef41f1f997c08041d76950bb"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1968137322,
+        "arrivals_sha256": "64632ea99d5312208f8c8fec66669fd69185497b569eaaf42ed248d0e4a6e857"
+      },
+      {
+        "scenario": "shift",
+        "seed": 30144670,
+        "arrivals_sha256": "3c7300edfb651b61c8ea7ed9253b928e9a28e8d1b691305b69f74a16abf734e0"
+      },
+      {
+        "scenario": "morning",
+        "seed": 197940627,
+        "arrivals_sha256": "c941e7323a89c742f9258c61bd148191d45d82fedb895ccff5f297e62c188a8b"
+      },
+      {
+        "scenario": "day",
+        "seed": 469496,
+        "arrivals_sha256": "c4371fe9442dcbe8f6533c131b41cf7e315384cc0753614b8d91e86ac8517645"
+      },
+      {
+        "scenario": "evening",
+        "seed": 969019739,
+        "arrivals_sha256": "64b60bf42bdcab37e6c5b5d118414069f681fd89eb549db358fcbbca4a7a9e54"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1246924894,
+        "arrivals_sha256": "ff1b99240ec88de599d213b8ef2efc0073e0ca491bd9f89d6cb1f4a369cdcd39"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1173804226,
+        "arrivals_sha256": "5d5231948743ad9d52fea05d1523b86e00c96a73138789c7c3e559c77cb68e35"
+      },
+      {
+        "scenario": "day",
+        "seed": 2001847735,
+        "arrivals_sha256": "d6a41badf6e3509d9abf2aa958f8a6f9606e0a6e6543379960397e6614a2bc78"
+      },
+      {
+        "scenario": "evening",
+        "seed": 1796068884,
+        "arrivals_sha256": "f47ce85cab463d013655bd43b845e8f482ff1f8c27c07171f81a9ff46ac9bb04"
+      },
+      {
+        "scenario": "shift",
+        "seed": 178391943,
+        "arrivals_sha256": "3b46de044da6f0c97363fd3bf65b3b37adb930e95ffa3afbb584962324c6ead9"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1310262184,
+        "arrivals_sha256": "2db6cb991c5efb3874543939d61e1da23aa793f43d8e4c8c54effef5864254f5"
+      },
+      {
+        "scenario": "day",
+        "seed": 1704619397,
+        "arrivals_sha256": "1de0429b3722028bf53bcc0308b0de7bdffbc935bd0be4e0dbf7aadf892191e8"
+      },
+      {
+        "scenario": "evening",
+        "seed": 426911926,
+        "arrivals_sha256": "e90b1f9ceae9df22cadb471fd889674312c653a6b5733c685ef2f923d8ea7a0e"
+      },
+      {
+        "scenario": "shift",
+        "seed": 532237219,
+        "arrivals_sha256": "5f22b4af7cc484035cb00aaee549aa750eb1daa6459d53146fcb9e509580e0fb"
+      },
+      {
+        "scenario": "morning",
+        "seed": 259466638,
+        "arrivals_sha256": "697dc03fa7741ea9bbf587ad29a0feab2802a7012d4a2bc2b37d433eb2c846ac"
+      },
+      {
+        "scenario": "day",
+        "seed": 1333757693,
+        "arrivals_sha256": "976c09648b435207d42ec865e0de3b6e346980c3655acb05420032af8268b76d"
+      },
+      {
+        "scenario": "evening",
+        "seed": 95914633,
+        "arrivals_sha256": "a75bb06efcd67b5c19ce8c137015f641b7df2ecf80ba5ce85b317d81bdb3d3f6"
+      },
+      {
+        "scenario": "shift",
+        "seed": 1614606330,
+        "arrivals_sha256": "dddef7fadf9a3faf819814cf316ab9a2a6791b415e6b762f25d6c2b3a0a24534"
+      },
+      {
+        "scenario": "morning",
+        "seed": 1173499471,
+        "arrivals_sha256": "7e3a2a5261253d64126bcef69966b2cfae0e2eb38c489d500ea81c77b7fee1b7"
+      }
+    ],
+    "alpha": 0.16,
+    "gamma_per_tick": 0.998,
+    "step_seconds": 0.25,
+    "duration_s": 240,
+    "signal": {
+      "minimum": 10,
+      "maximum": 60,
+      "yellow": 3,
+      "all_red": 1,
+      "fixed": 30
+    },
+    "recording": null,
+    "recording_compression": 1,
+    "parent": null
+  },
+  "q_table": {
+    "0,0,0,2": [
+      -85.24301380590721,
+      -69.01713180689198,
+      -86.68234701496282
+    ],
+    "0,1,0,3": [
+      -118.19081884553032,
+      -113.2477992840374,
+      -103.77145732520003
+    ],
+    "1,0,1,2": [
+      -121.57197675880133,
+      -100.38463008595599,
+      -117.582591265193
+    ],
+    "1,0,1,3": [
+      -91.3963700225446,
+      -94.61615901215659,
+      -84.3464900745228
+    ],
+    "0,1,0,2": [
+      -164.24446589451966,
+      -121.38338441485841,
+      -119.17525324485493
+    ],
+    "3,0,1,2": [
+      -131.15666177028064,
+      -158.74603148883978,
+      -201.47462091204721
+    ],
+    "3,0,1,4": [
+      -142.39673010239719,
+      -165.2442118653401,
+      -164.22620382094928
+    ],
+    "3,1,1,5": [
+      -47.17258351737742,
+      -38.54154612221387,
+      -54.83470592052987
+    ],
+    "0,3,0,4": [
+      -165.06406403897705,
+      -168.77562634446934,
+      -169.25841016620612
+    ],
+    "1,1,1,2": [
+      -89.42693240212225,
+      -53.887373389015835,
+      -95.26854392579502
+    ],
+    "1,1,1,3": [
+      -23.363834626234535,
+      -7.625116504984529,
+      0.0
+    ],
+    "0,3,0,2": [
+      -165.93476897734598,
+      -165.2777032509756,
+      -171.84011350406487
+    ],
+    "2,0,1,2": [
+      -170.89059271112882,
+      -137.45189715561247,
+      -164.31876767650084
+    ],
+    "1,2,0,2": [
+      -110.0022787686303,
+      -107.61896949119541,
+      -116.61452656432284
+    ],
+    "0,2,0,3": [
+      -148.6337611906757,
+      -145.23979158005633,
+      -150.51630553150477
+    ],
+    "0,3,0,6": [
+      -159.69699989752274,
+      -159.00623336132185,
+      -163.4595041832999
+    ],
+    "0,1,0,4": [
+      -111.36541637966522,
+      -108.07273795083837,
+      -109.98477384005625
+    ],
+    "3,0,1,3": [
+      -160.65849599575293,
+      -154.44146666647552,
+      -191.9283418645726
+    ],
+    "0,2,0,4": [
+      -144.56535059044424,
+      -110.61952669288274,
+      -154.04068133459666
+    ],
+    "0,2,0,6": [
+      -153.2742002666514,
+      -138.30412430104283,
+      -132.4500145834163
+    ],
+    "3,1,1,3": [
+      -68.71384139470902,
+      -69.53996722994496,
+      -77.09897377404492
+    ],
+    "3,0,1,5": [
+      -149.86676365887266,
+      -151.33775157160926,
+      -152.24058775706925
+    ],
+    "1,1,0,2": [
+      -63.435283511304945,
+      -71.66732697241585,
+      -59.191580388375904
+    ],
+    "4,0,1,6": [
+      -124.95348212128846,
+      -142.9015571973777,
+      -158.8796592550301
+    ],
+    "0,2,0,2": [
+      -157.83456330543362,
+      -166.04284474503885,
+      -174.10840811953506
+    ],
+    "1,3,0,5": [
+      -75.71481007236544,
+      -57.58527528226362,
+      -66.90381372945959
+    ],
+    "4,0,1,2": [
+      -159.98165716861504,
+      -157.6906702968832,
+      -183.23030815239943
+    ],
+    "0,3,0,5": [
+      -160.97482541768548,
+      -162.51334173432633,
+      -167.58781499508828
+    ],
+    "0,0,0,4": [
+      -64.3990300789311,
+      -48.91965217185663,
+      -53.35451981606374
+    ],
+    "0,1,0,5": [
+      -104.02405918544059,
+      -81.4284210431024,
+      -104.26131977831953
+    ],
+    "1,0,0,3": [
+      -38.530083296812165,
+      -41.56588571693195,
+      -36.975906775641576
+    ],
+    "0,3,0,7": [
+      -171.1041365566902,
+      -169.98532771861736,
+      -179.50575081516777
+    ],
+    "0,0,1,2": [
+      -87.00336136194099,
+      -37.738365118171366,
+      -52.52904514201188
+    ],
+    "0,3,0,3": [
+      -167.7562466840994,
+      -167.74896466590272,
+      -175.88926858624987
+    ],
+    "1,0,0,2": [
+      -41.14373316727888,
+      -40.65010321215411,
+      -49.45872656048339
+    ],
+    "0,2,0,5": [
+      -140.40497157523637,
+      -124.28455444842858,
+      -129.1280170983984
+    ],
+    "3,1,1,2": [
+      -83.08172811845046,
+      -80.89225648098417,
+      -104.54598287356981
+    ],
+    "4,1,1,7": [
+      -51.64339838405141,
+      -48.24109068645353,
+      -52.168722542617246
+    ],
+    "0,4,0,4": [
+      -155.16133297294752,
+      -152.48429937330624,
+      -147.67492001593092
+    ],
+    "1,3,0,2": [
+      -112.97512170439093,
+      -88.12705777755808,
+      -74.06238662428365
+    ],
+    "4,0,1,4": [
+      -167.15137429681565,
+      -161.8730856033344,
+      -175.98318106029805
+    ],
+    "1,1,0,6": [
+      -26.625747118731493,
+      -9.705107869126564,
+      -20.753886910809335
+    ],
+    "0,1,0,7": [
+      -86.1500194777374,
+      -51.518215167225854,
+      -54.41601364489415
+    ],
+    "0,1,0,6": [
+      -105.85313321288676,
+      -93.9311108466183,
+      -67.37987141319957
+    ],
+    "0,1,0,8": [
+      -67.61479451995027,
+      -59.791290656547496,
+      -50.23910715487682
+    ],
+    "2,1,1,2": [
+      -89.68286000949648,
+      -89.96454234002479,
+      -109.58926931848757
+    ],
+    "2,2,1,4": [
+      -37.194440207165044,
+      -5.733110184049135,
+      0.0
+    ],
+    "3,0,1,6": [
+      -137.7301570883466,
+      -133.3851747626949,
+      -135.00796848639135
+    ],
+    "3,0,1,7": [
+      -104.67125382271587,
+      -109.40275566545675,
+      -124.00145050145922
+    ],
+    "3,0,1,9": [
+      -76.13195821192919,
+      -53.67544227977917,
+      -70.31404576826588
+    ],
+    "2,0,0,2": [
+      -5.7782335115362935,
+      0.0,
+      0.0
+    ],
+    "0,2,0,7": [
+      -128.21007751120533,
+      -122.77260285509792,
+      -122.7713789354662
+    ],
+    "4,0,1,5": [
+      -159.25329602663982,
+      -166.93574547226822,
+      -170.39322871968102
+    ],
+    "0,2,0,9": [
+      -129.88666914716032,
+      -126.80201577597856,
+      -141.6581771076039
+    ],
+    "0,2,0,11": [
+      -128.58498344550557,
+      -132.60946824517399,
+      0.0
+    ],
+    "2,0,1,3": [
+      -158.9641713449871,
+      -141.35361145301337,
+      -153.5265521125657
+    ],
+    "2,0,1,4": [
+      -133.30011452114348,
+      -142.67218889803604,
+      -144.39225051140988
+    ],
+    "0,0,1,3": [
+      0.0,
+      -4.655872068017853,
+      0.0
+    ],
+    "2,1,1,4": [
+      -63.42613555513162,
+      -35.14754873476962,
+      -78.12185532627771
+    ],
+    "2,0,1,6": [
+      -54.85159672670608,
+      -39.566063595493794,
+      -43.371830588776426
+    ],
+    "0,4,0,7": [
+      -133.02727084602478,
+      -117.59224855353713,
+      -115.07844922918055
+    ],
+    "0,4,0,9": [
+      -108.80296258166156,
+      -110.10771730035428,
+      -173.15011903646248
+    ],
+    "1,3,0,3": [
+      -77.45700770427335,
+      -47.38291503522684,
+      -42.67642886947653
+    ],
+    "4,0,1,7": [
+      -136.27089368898248,
+      -133.64332150600103,
+      -162.1231743561343
+    ],
+    "1,4,0,8": [
+      -15.101134984268622,
+      -26.18734186460894,
+      -38.501739361317306
+    ],
+    "0,0,0,3": [
+      -115.34712429049489,
+      -56.277992643566606,
+      -69.29674343298375
+    ],
+    "0,1,0,9": [
+      -22.388162618143358,
+      -29.674106092748133,
+      -13.327420188906398
+    ],
+    "2,2,1,2": [
+      -31.400688442179657,
+      0.0,
+      0.0
+    ],
+    "0,5,0,2": [
+      0.0,
+      -21.184371458645188,
+      0.0
+    ],
+    "0,5,0,3": [
+      -56.00558790691656,
+      -24.132728788150565,
+      -43.428697710341076
+    ],
+    "0,5,0,4": [
+      -56.01194365671367,
+      -47.789953644156924,
+      -80.32818984373644
+    ],
+    "0,5,0,5": [
+      -70.9689517179454,
+      -76.3721184710989,
+      -79.14285597602725
+    ],
+    "0,4,0,2": [
+      -129.93404279129777,
+      -135.78222397801304,
+      -190.38982914545778
+    ],
+    "1,1,0,4": [
+      -67.25442175851516,
+      -50.561773698168324,
+      -40.13328804086868
+    ],
+    "1,1,0,5": [
+      -34.516394467819154,
+      -36.40721377458212,
+      -30.222953114748556
+    ],
+    "0,1,0,10": [
+      -31.032625725294444,
+      -36.67558733824252,
+      -43.581079348709565
+    ],
+    "1,2,0,3": [
+      -86.52559058875454,
+      -83.65701507105526,
+      -101.38143656275967
+    ],
+    "0,3,0,8": [
+      -170.9243570642162,
+      -164.28551414214542,
+      -170.00801937509007
+    ],
+    "0,3,0,10": [
+      -170.8298045635906,
+      -156.26746257887197,
+      -167.331164015633
+    ],
+    "4,0,1,8": [
+      -137.4801386391103,
+      -119.06556374065869,
+      -139.32793637824543
+    ],
+    "3,0,1,8": [
+      -92.65048947169016,
+      -89.17909344382981,
+      -102.62894405192422
+    ],
+    "4,0,1,9": [
+      -142.9576591536,
+      -124.85283685546366,
+      -133.20504797399934
+    ],
+    "4,0,1,11": [
+      -132.11150834151124,
+      -172.47540996817756,
+      0.0
+    ],
+    "0,3,0,9": [
+      -164.0599253504639,
+      -162.59527990562972,
+      -181.83474867728725
+    ],
+    "2,1,1,3": [
+      -69.88095102877375,
+      -41.03856674815584,
+      -52.28133035475973
+    ],
+    "0,4,0,5": [
+      -124.82348581341726,
+      -136.90477031471215,
+      -145.3320278685127
+    ],
+    "0,4,0,6": [
+      -120.35282870156658,
+      -120.24746690534502,
+      -133.34241436627218
+    ],
+    "1,0,0,5": [
+      -16.037307977666803,
+      -0.07992,
+      -2.446106334980479
+    ],
+    "0,0,0,6": [
+      -38.774736748962724,
+      -0.3727374907165938,
+      -0.6633396967847398
+    ],
+    "0,1,0,11": [
+      -21.122592652501513,
+      -24.998279971423052,
+      0.0
+    ],
+    "1,0,0,4": [
+      -9.000096723094762,
+      -4.235198775980688,
+      -12.955958522901652
+    ],
+    "0,4,0,3": [
+      -103.41009932939963,
+      -150.52046870945003,
+      -120.0383953108716
+    ],
+    "0,5,0,6": [
+      -68.81504590201571,
+      -54.66859688227393,
+      -48.77810804459288
+    ],
+    "1,5,0,8": [
+      -26.54564120454662,
+      -19.66035430395724,
+      0.0
+    ],
+    "3,1,1,4": [
+      -56.250663847458625,
+      -72.53974112790976,
+      -45.12712677308044
+    ],
+    "5,0,1,9": [
+      -56.88649117951907,
+      -58.217913129265696,
+      -160.46524572800564
+    ],
+    "1,3,0,4": [
+      -48.49291329490656,
+      -75.72166504400475,
+      -72.23978866850462
+    ],
+    "2,0,1,5": [
+      -78.19512481437407,
+      -73.58786675545635,
+      -90.01632961372356
+    ],
+    "4,0,1,10": [
+      -124.20629466696086,
+      -119.9107047036793,
+      -126.89237302708008
+    ],
+    "0,4,0,8": [
+      -130.28671416265865,
+      -128.00623235002374,
+      -143.02638866639967
+    ],
+    "4,0,1,3": [
+      -117.7012582950027,
+      -138.56964693493632,
+      -178.9390718498355
+    ],
+    "3,1,1,6": [
+      -45.14991305853938,
+      -26.96105035272285,
+      0.0
+    ],
+    "1,0,1,4": [
+      -37.70985286982912,
+      -17.727771798500243,
+      -18.458798490199207
+    ],
+    "1,1,1,5": [
+      -18.55872815969215,
+      -1.2509406551201905,
+      -6.502961276728825
+    ],
+    "1,1,1,6": [
+      -19.08371823558636,
+      -1.5699617189462902,
+      0.0
+    ],
+    "1,0,1,7": [
+      -10.702209624962958,
+      0.0,
+      0.0
+    ],
+    "0,3,0,11": [
+      -171.30521862552644,
+      -177.6394487506666,
+      0.0
+    ],
+    "1,2,0,4": [
+      -78.13782076305307,
+      -79.63338337753555,
+      -63.736150845841976
+    ],
+    "1,2,0,7": [
+      -40.14577209383912,
+      -32.824039377986445,
+      -43.05193202915699
+    ],
+    "2,1,1,5": [
+      -26.509053549671705,
+      -17.771659887076286,
+      -21.698460275395263
+    ],
+    "0,4,0,10": [
+      -130.2385935014728,
+      -147.681245442411,
+      -175.03254791502485
+    ],
+    "0,2,0,8": [
+      -119.70979924242091,
+      -121.51871497755714,
+      -119.97882335252791
+    ],
+    "3,1,1,7": [
+      -4.9874841656421305,
+      -12.160330489450269,
+      -16.512233409341796
+    ],
+    "1,2,0,5": [
+      -79.59584814630779,
+      -74.69683134351666,
+      -66.67712807743222
+    ],
+    "1,3,0,6": [
+      -59.88693330256879,
+      -40.4045069030977,
+      -38.831603693280606
+    ],
+    "1,1,0,9": [
+      0.0,
+      -0.7849808594731451,
+      0.0
+    ],
+    "1,3,0,11": [
+      -59.49954158732453,
+      -87.95478656409098,
+      0.0
+    ],
+    "0,5,0,8": [
+      -94.26959928063938,
+      -42.97086099036555,
+      -48.76692123498235
+    ],
+    "1,2,0,9": [
+      -22.816055709556657,
+      -17.31374471475155,
+      -28.069423557862795
+    ],
+    "3,1,1,8": [
+      -12.45283907925245,
+      -11.709282544936864,
+      0.0
+    ],
+    "1,2,0,10": [
+      -1.07632511744,
+      -5.4225246150140585,
+      -39.081530875135414
+    ],
+    "4,1,1,6": [
+      -22.460914660645276,
+      0.0,
+      -32.078695715526706
+    ],
+    "5,0,1,10": [
+      -70.4979360423618,
+      -51.81906952586252,
+      -73.4741980260149
+    ],
+    "1,4,0,7": [
+      -43.71141932040133,
+      -59.719156625818705,
+      -39.87074681816977
+    ],
+    "5,0,1,11": [
+      -117.34422256731442,
+      -107.02515734958546,
+      0.0
+    ],
+    "0,4,0,11": [
+      -153.34412325028325,
+      -175.10064878565922,
+      0.0
+    ],
+    "0,2,0,10": [
+      -129.99373782007257,
+      -121.77765582679167,
+      -124.50747579509923
+    ],
+    "1,3,0,7": [
+      -63.979765606087234,
+      -66.7413908415505,
+      -81.62044574380744
+    ],
+    "1,3,0,10": [
+      -15.440879620217897,
+      -32.5385292676271,
+      0.0
+    ],
+    "1,2,0,6": [
+      -47.608924143406576,
+      -32.580398901847005,
+      -13.016335230371249
+    ],
+    "5,0,1,7": [
+      -55.11308008339581,
+      -46.74607676422564,
+      -47.34513752782666
+    ],
+    "0,5,0,9": [
+      -60.15330452757763,
+      -56.58209800700156,
+      -44.47588653264058
+    ],
+    "1,1,0,3": [
+      -69.04086313535483,
+      -47.224229279570636,
+      -56.224885178915926
+    ],
+    "5,0,1,8": [
+      -58.236684130790294,
+      -71.0062833989268,
+      -79.62138177834632
+    ],
+    "5,1,1,10": [
+      0.0,
+      0.0,
+      -72.5697610396275
+    ],
+    "0,1,1,2": [
+      -7.595588303409661,
+      -19.836514450155466,
+      -3.0161212884816853
+    ],
+    "0,5,0,10": [
+      -27.283945783275726,
+      -49.09746080241005,
+      -73.74972996135895
+    ],
+    "2,0,1,7": [
+      -63.29200901099173,
+      -21.148386190370516,
+      -22.75269689948082
+    ],
+    "3,0,1,10": [
+      -52.03260397412162,
+      -66.80769305921238,
+      -72.82568463572557
+    ],
+    "5,0,1,5": [
+      0.0,
+      -39.913101095622046,
+      0.0
+    ],
+    "5,0,1,6": [
+      -45.4804447588077,
+      -40.79953715132629,
+      -38.52578588561313
+    ],
+    "0,5,0,11": [
+      -89.88417047129917,
+      -100.8685535129328,
+      0.0
+    ],
+    "1,4,0,4": [
+      -22.27457115819128,
+      0.0,
+      0.0
+    ],
+    "1,2,0,8": [
+      -76.35846599435632,
+      -66.3990963005119,
+      -56.719280710885414
+    ],
+    "0,5,0,7": [
+      -50.97572606085737,
+      -58.12615579448594,
+      -44.487015690070606
+    ],
+    "1,3,0,8": [
+      -35.58192268868454,
+      -40.86585874360489,
+      -27.350505560509692
+    ],
+    "5,0,1,2": [
+      -24.85413462541687,
+      -18.83954062735548,
+      0.0
+    ],
+    "4,1,1,3": [
+      0.0,
+      0.0,
+      -28.448306926617374
+    ],
+    "4,1,1,10": [
+      -16.433843641363357,
+      -27.683024398065573,
+      0.0
+    ],
+    "1,5,0,9": [
+      0.0,
+      0.0,
+      -40.056074777009165
+    ],
+    "1,4,0,6": [
+      -49.97157659771899,
+      -57.60336194255405,
+      -66.35036524500173
+    ],
+    "1,4,0,10": [
+      -22.11412886132666,
+      -23.125139016777002,
+      -99.64087531647414
+    ],
+    "0,0,0,5": [
+      -34.84491157359152,
+      -25.153284282572223,
+      -17.932517368088675
+    ],
+    "1,4,0,2": [
+      -48.96307657368783,
+      -16.035604392754298,
+      -48.92542641525468
+    ],
+    "1,1,0,7": [
+      -41.50099233115767,
+      -8.158209963648016,
+      -23.515481877678376
+    ],
+    "1,4,0,11": [
+      -51.76976771888384,
+      -42.340940935253315,
+      0.0
+    ],
+    "1,4,0,9": [
+      0.0,
+      -10.59105824937991,
+      0.0
+    ],
+    "1,4,0,3": [
+      -19.719934930280402,
+      0.0,
+      0.0
+    ],
+    "0,1,1,3": [
+      -20.475288910321005,
+      -1.3887090692435218,
+      0.0
+    ],
+    "0,0,0,7": [
+      -49.43052413665572,
+      -0.039522393609592324,
+      -3.1896668635827727
+    ],
+    "0,0,0,8": [
+      -15.30427538182127,
+      0.0,
+      -13.569435959372807
+    ],
+    "1,2,0,11": [
+      -24.381772110448427,
+      0.0,
+      0.0
+    ],
+    "1,1,0,8": [
+      -27.180650174878156,
+      -28.612528143584782,
+      0.0
+    ],
+    "1,0,1,5": [
+      -24.500473911002363,
+      -4.087005534777894,
+      -6.312850720828021
+    ],
+    "4,1,1,9": [
+      -21.198705456563854,
+      0.0,
+      0.0
+    ],
+    "5,0,1,3": [
+      -29.996303577107167,
+      0.0,
+      0.0
+    ],
+    "2,1,1,6": [
+      -44.53090588263789,
+      -2.5533481672328664,
+      -4.735575833282377
+    ],
+    "2,0,1,9": [
+      -36.33914593079354,
+      -11.607937745430181,
+      0.0
+    ],
+    "4,1,1,5": [
+      -21.29980308239524,
+      -28.524323878941452,
+      0.0
+    ],
+    "1,2,1,2": [
+      -29.409576343212684,
+      -7.648672604942138,
+      -10.31405598660509
+    ],
+    "1,0,1,6": [
+      -17.056560195593324,
+      0.0,
+      0.0
+    ],
+    "3,0,0,2": [
+      0.0,
+      -4.440202777001387,
+      0.0
+    ],
+    "2,1,0,3": [
+      0.0,
+      -5.057119297392058,
+      0.0
+    ],
+    "4,1,1,4": [
+      -38.40160325181211,
+      0.0,
+      0.0
+    ],
+    "1,1,1,4": [
+      0.0,
+      -3.987699442268361,
+      0.0
+    ],
+    "2,2,1,5": [
+      -34.63237684722835,
+      -4.091251885816456,
+      0.0
+    ],
+    "1,5,0,4": [
+      0.0,
+      -21.74002342556806,
+      -43.673270452025584
+    ],
+    "1,5,0,10": [
+      -42.44830993895347,
+      0.0,
+      0.0
+    ],
+    "1,5,0,6": [
+      -39.55109399906597,
+      0.0,
+      0.0
+    ],
+    "4,1,1,2": [
+      -21.811954636853716,
+      -27.009028822536948,
+      0.0
+    ],
+    "1,5,0,11": [
+      -47.23659634541386,
+      0.0,
+      0.0
+    ],
+    "1,3,0,9": [
+      -26.467164100435134,
+      -26.54525347938431,
+      0.0
+    ],
+    "2,2,1,3": [
+      -19.52952745499191,
+      0.0,
+      0.0
+    ],
+    "3,0,1,11": [
+      -35.020137657461774,
+      0.0,
+      0.0
+    ],
+    "2,0,1,8": [
+      -66.55208423194017,
+      -3.924904297365725,
+      0.0
+    ],
+    "4,1,1,8": [
+      -27.351844398434295,
+      0.0,
+      0.0
+    ],
+    "1,5,0,5": [
+      -39.05512600623525,
+      0.0,
+      0.0
+    ],
+    "4,1,1,11": [
+      0.0,
+      -43.97378593193973,
+      0.0
+    ],
+    "1,5,0,7": [
+      -33.56312181373114,
+      0.0,
+      0.0
+    ],
+    "3,1,1,11": [
+      -24.93388644681868,
+      0.0,
+      0.0
+    ],
+    "2,2,0,5": [
+      -42.23674385319577,
+      0.0,
+      0.0
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "출근 · 주도로 집중",
+  "duration": 240,
+  "demand_basis": "일부 접근로는 2024 TOPIS 시간대별 통과량을 가상 차선 1개로 환산. 나머지는 가정값.",
+  "demand": [
+    {
+      "at_s": 0,
+      "per_hour": {
+        "west": 810,
+        "east": 569,
+        "north": 290,
+        "south": 270
+      }
+    },
+    {
+      "at_s": 124,
+      "per_hour": {
+        "west": 680,
+        "east": 569,
+        "north": 320,
+        "south": 300
+      }
+    }
+  ],
+  "speeds": [
+    {
+      "at_s": 0,
+      "kmh": {
+        "west": 23,
+        "east": 25,
+        "north": 43,
+        "south": 38
+      }
+    },
+    {
+      "at_s": 90,
+      "kmh": {
+        "west": 17,
+        "east": 22,
+        "north": 36,
+        "south": 33
+      }
+    }
+  ],
+  "source": "data/traffic_volume_sources.json"
+}

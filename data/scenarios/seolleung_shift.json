@@ -1,0 +1,72 @@
+{
+  "name": "혼잡 방향 전환",
+  "duration": 240,
+  "demand_basis": "가상 차선의 가정 입력값",
+  "demand": [
+    {
+      "at_s": 0,
+      "per_hour": {
+        "west": 720,
+        "east": 585,
+        "north": 205,
+        "south": 195
+      }
+    },
+    {
+      "at_s": 88,
+      "per_hour": {
+        "west": 305,
+        "east": 295,
+        "north": 790,
+        "south": 660
+      }
+    },
+    {
+      "at_s": 170,
+      "per_hour": {
+        "west": 590,
+        "east": 530,
+        "north": 415,
+        "south": 370
+      }
+    }
+  ],
+  "speeds": [
+    {
+      "at_s": 0,
+      "kmh": {
+        "west": 15,
+        "east": 18,
+        "north": 41,
+        "south": 40
+      }
+    },
+    {
+      "at_s": 66,
+      "kmh": {
+        "west": 37,
+        "east": 36,
+        "north": 34,
+        "south": 34
+      }
+    },
+    {
+      "at_s": 88,
+      "kmh": {
+        "west": 37,
+        "east": 34,
+        "north": 12,
+        "south": 14
+      }
+    },
+    {
+      "at_s": 170,
+      "kmh": {
+        "west": 24,
+        "east": 26,
+        "north": 30,
+        "south": 32
+      }
+    }
+  ]
+}

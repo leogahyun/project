@@ -1,0 +1,1388 @@
+[
+  {
+    "episode": 0,
+    "states": 0,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      }
+    }
+  },
+  {
+    "episode": 25,
+    "states": 111,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 11.292,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1336.271,
+        "mean_crossed_stop_line": 103.917,
+        "mean_exited": 97.333,
+        "mean_on_road_end": 21.0,
+        "mean_queued_on_road_end": 6.333,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 47.75,
+          "east": 47.5,
+          "north": 62.75,
+          "south": 61.0
+        },
+        "max_wait_s_by_group": [
+          47.75,
+          62.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 50,
+    "states": 133,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 11.87,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1404.646,
+        "mean_crossed_stop_line": 104.667,
+        "mean_exited": 97.917,
+        "mean_on_road_end": 20.417,
+        "mean_queued_on_road_end": 6.25,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 45.75,
+          "east": 47.25,
+          "north": 66.0,
+          "south": 62.25
+        },
+        "max_wait_s_by_group": [
+          47.25,
+          66.0
+        ]
+      }
+    }
+  },
+  {
+    "episode": 75,
+    "states": 143,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.384,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1110.417,
+        "mean_crossed_stop_line": 105.5,
+        "mean_exited": 96.917,
+        "mean_on_road_end": 21.417,
+        "mean_queued_on_road_end": 5.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 60.75,
+          "east": 66.0,
+          "north": 60.25,
+          "south": 60.25
+        },
+        "max_wait_s_by_group": [
+          66.0,
+          60.25
+        ]
+      }
+    }
+  },
+  {
+    "episode": 100,
+    "states": 153,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 8.875,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1050.188,
+        "mean_crossed_stop_line": 106.833,
+        "mean_exited": 99.75,
+        "mean_on_road_end": 18.583,
+        "mean_queued_on_road_end": 4.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 65.5,
+          "east": 59.25,
+          "north": 57.5,
+          "south": 62.25
+        },
+        "max_wait_s_by_group": [
+          65.5,
+          62.25
+        ]
+      }
+    }
+  },
+  {
+    "episode": 125,
+    "states": 161,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 10.678,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1263.521,
+        "mean_crossed_stop_line": 104.833,
+        "mean_exited": 99.333,
+        "mean_on_road_end": 19.0,
+        "mean_queued_on_road_end": 6.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 64.75,
+          "east": 58.75,
+          "north": 63.75,
+          "south": 62.0
+        },
+        "max_wait_s_by_group": [
+          64.75,
+          63.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 150,
+    "states": 171,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.925,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1174.458,
+        "mean_crossed_stop_line": 105.25,
+        "mean_exited": 99.167,
+        "mean_on_road_end": 19.167,
+        "mean_queued_on_road_end": 5.583,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 51.75,
+          "east": 59.5,
+          "north": 65.0,
+          "south": 65.0
+        },
+        "max_wait_s_by_group": [
+          59.5,
+          65.0
+        ]
+      }
+    }
+  },
+  {
+    "episode": 175,
+    "states": 173,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.864,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1167.271,
+        "mean_crossed_stop_line": 105.583,
+        "mean_exited": 98.75,
+        "mean_on_road_end": 19.583,
+        "mean_queued_on_road_end": 5.667,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 59.5,
+          "east": 60.0,
+          "north": 61.75,
+          "south": 58.25
+        },
+        "max_wait_s_by_group": [
+          60.0,
+          61.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 200,
+    "states": 181,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 8.887,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1051.625,
+        "mean_crossed_stop_line": 106.833,
+        "mean_exited": 100.167,
+        "mean_on_road_end": 18.167,
+        "mean_queued_on_road_end": 3.667,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 64.25,
+          "east": 65.25,
+          "north": 53.75,
+          "south": 52.75
+        },
+        "max_wait_s_by_group": [
+          65.25,
+          53.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 225,
+    "states": 183,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 8.971,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1061.625,
+        "mean_crossed_stop_line": 105.5,
+        "mean_exited": 100.333,
+        "mean_on_road_end": 18.0,
+        "mean_queued_on_road_end": 6.5,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 62.5,
+          "east": 61.75,
+          "north": 65.5,
+          "south": 62.0
+        },
+        "max_wait_s_by_group": [
+          62.5,
+          65.5
+        ]
+      }
+    }
+  },
+  {
+    "episode": 250,
+    "states": 186,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 10.854,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1284.396,
+        "mean_crossed_stop_line": 105.25,
+        "mean_exited": 99.083,
+        "mean_on_road_end": 19.25,
+        "mean_queued_on_road_end": 6.5,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 57.75,
+          "east": 54.25,
+          "north": 65.0,
+          "south": 63.0
+        },
+        "max_wait_s_by_group": [
+          57.75,
+          65.0
+        ]
+      }
+    }
+  },
+  {
+    "episode": 275,
+    "states": 190,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 7.811,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 924.312,
+        "mean_crossed_stop_line": 106.0,
+        "mean_exited": 100.333,
+        "mean_on_road_end": 18.0,
+        "mean_queued_on_road_end": 5.5,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 66.0,
+          "east": 57.5,
+          "north": 44.25,
+          "south": 48.5
+        },
+        "max_wait_s_by_group": [
+          66.0,
+          48.5
+        ]
+      }
+    }
+  },
+  {
+    "episode": 300,
+    "states": 192,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.115,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1078.583,
+        "mean_crossed_stop_line": 105.333,
+        "mean_exited": 99.0,
+        "mean_on_road_end": 19.333,
+        "mean_queued_on_road_end": 6.75,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 67.5,
+          "east": 66.5,
+          "north": 62.5,
+          "south": 65.0
+        },
+        "max_wait_s_by_group": [
+          67.5,
+          65.0
+        ]
+      }
+    }
+  },
+  {
+    "episode": 325,
+    "states": 193,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 11.057,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1308.417,
+        "mean_crossed_stop_line": 104.333,
+        "mean_exited": 95.5,
+        "mean_on_road_end": 22.833,
+        "mean_queued_on_road_end": 7.417,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 67.5,
+          "east": 66.75,
+          "north": 55.0,
+          "south": 62.5
+        },
+        "max_wait_s_by_group": [
+          67.5,
+          62.5
+        ]
+      }
+    }
+  },
+  {
+    "episode": 350,
+    "states": 195,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.468,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1120.354,
+        "mean_crossed_stop_line": 104.667,
+        "mean_exited": 100.5,
+        "mean_on_road_end": 17.833,
+        "mean_queued_on_road_end": 7.333,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 68.0,
+          "east": 67.25,
+          "north": 61.75,
+          "south": 44.25
+        },
+        "max_wait_s_by_group": [
+          68.0,
+          61.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 375,
+    "states": 196,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 11.036,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1305.896,
+        "mean_crossed_stop_line": 105.167,
+        "mean_exited": 98.083,
+        "mean_on_road_end": 20.25,
+        "mean_queued_on_road_end": 4.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 47.0,
+          "east": 47.75,
+          "north": 82.25,
+          "south": 78.5
+        },
+        "max_wait_s_by_group": [
+          47.75,
+          82.25
+        ]
+      }
+    }
+  },
+  {
+    "episode": 400,
+    "states": 198,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.82,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1162.062,
+        "mean_crossed_stop_line": 105.083,
+        "mean_exited": 98.667,
+        "mean_on_road_end": 19.667,
+        "mean_queued_on_road_end": 6.583,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 46.25,
+          "east": 48.0,
+          "north": 76.25,
+          "south": 45.25
+        },
+        "max_wait_s_by_group": [
+          48.0,
+          76.25
+        ]
+      }
+    }
+  },
+  {
+    "episode": 425,
+    "states": 200,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 13.075,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1547.208,
+        "mean_crossed_stop_line": 104.083,
+        "mean_exited": 97.833,
+        "mean_on_road_end": 20.5,
+        "mean_queued_on_road_end": 7.25,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 47.25,
+          "east": 47.75,
+          "north": 67.5,
+          "south": 67.25
+        },
+        "max_wait_s_by_group": [
+          47.75,
+          67.5
+        ]
+      }
+    }
+  },
+  {
+    "episode": 450,
+    "states": 201,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 9.773,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1156.417,
+        "mean_crossed_stop_line": 104.917,
+        "mean_exited": 98.5,
+        "mean_on_road_end": 19.833,
+        "mean_queued_on_road_end": 5.083,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 54.75,
+          "east": 54.5,
+          "north": 69.5,
+          "south": 52.75
+        },
+        "max_wait_s_by_group": [
+          54.75,
+          69.5
+        ]
+      }
+    }
+  },
+  {
+    "episode": 475,
+    "states": 201,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 8.758,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1036.375,
+        "mean_crossed_stop_line": 106.083,
+        "mean_exited": 99.333,
+        "mean_on_road_end": 19.0,
+        "mean_queued_on_road_end": 4.75,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 55.75,
+          "east": 52.75,
+          "north": 52.0,
+          "south": 62.75
+        },
+        "max_wait_s_by_group": [
+          55.75,
+          62.75
+        ]
+      }
+    }
+  },
+  {
+    "episode": 500,
+    "states": 203,
+    "metrics": {
+      "fixed": {
+        "mean_wait_s": 11.239,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1329.958,
+        "mean_crossed_stop_line": 105.0,
+        "mean_exited": 98.167,
+        "mean_on_road_end": 20.167,
+        "mean_queued_on_road_end": 2.167,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 39.0,
+          "east": 38.25,
+          "north": 37.75,
+          "south": 38.25
+        },
+        "max_wait_s_by_group": [
+          39.0,
+          38.25
+        ]
+      },
+      "queue": {
+        "mean_wait_s": 6.645,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 786.312,
+        "mean_crossed_stop_line": 107.667,
+        "mean_exited": 101.417,
+        "mean_on_road_end": 16.917,
+        "mean_queued_on_road_end": 2.917,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 29.5,
+          "east": 22.25,
+          "north": 33.25,
+          "south": 36.25
+        },
+        "max_wait_s_by_group": [
+          29.5,
+          36.25
+        ]
+      },
+      "q": {
+        "mean_wait_s": 8.463,
+        "mean_arrivals": 118.333,
+        "mean_total_wait_vehicle_s": 1001.438,
+        "mean_crossed_stop_line": 107.083,
+        "mean_exited": 100.667,
+        "mean_on_road_end": 17.667,
+        "mean_queued_on_road_end": 4.417,
+        "mean_pending_end": 0.0,
+        "max_wait_s_by_approach": {
+          "west": 37.75,
+          "east": 36.5,
+          "north": 52.5,
+          "south": 62.0
+        },
+        "max_wait_s_by_group": [
+          37.75,
+          62.0
+        ]
+      }
+    }
+  }
+]

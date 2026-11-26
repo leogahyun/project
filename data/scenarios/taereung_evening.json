@@ -1,0 +1,46 @@
+{
+  "name": "퇴근 · 양방향 유입",
+  "duration": 240,
+  "demand_basis": "일부 접근로는 2024 TOPIS 시간대별 통과량을 가상 차선 1개로 환산. 나머지는 가정값.",
+  "demand": [
+    {
+      "at_s": 0,
+      "per_hour": {
+        "west": 494,
+        "east": 391,
+        "north": 551,
+        "south": 550
+      }
+    },
+    {
+      "at_s": 130,
+      "per_hour": {
+        "west": 494,
+        "east": 391,
+        "north": 659,
+        "south": 588
+      }
+    }
+  ],
+  "speeds": [
+    {
+      "at_s": 0,
+      "kmh": {
+        "west": 33,
+        "east": 34,
+        "north": 27,
+        "south": 28
+      }
+    },
+    {
+      "at_s": 130,
+      "kmh": {
+        "west": 23,
+        "east": 25,
+        "north": 21,
+        "south": 23
+      }
+    }
+  ],
+  "source": "data/traffic_volume_sources.json"
+}
