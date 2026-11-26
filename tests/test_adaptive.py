@@ -9,7 +9,7 @@ from pathlib import Path
 from threading import Event
 from unittest.mock import patch
 
-from main import parser
+from main import main, parser
 from traffic.adaptive import AdaptiveTraining, train_candidate
 from traffic.config import load_site
 from traffic.observations import KST, Observation, PollResult, TrafficInfoError
@@ -37,6 +37,18 @@ class AdaptiveTests(unittest.TestCase):
         self.model = load_model(self.site.model_dir / "final.json", self.site.id)
         self.hour = current_hour()
         self.observed = volume(self.hour, 1500)
+
+    def test_launch_prompts_only_if_key_missing(self):
+        with (patch("sys.argv", ["main.py", "--mode", "live", "--adaptive"]),
+              patch.dict(os.environ, {"SEOUL_OPEN_API_KEY": ""}),
+              patch("main.prompt_topis_key", side_effect=[None, " sample-key "]) as prompt,
+              patch("traffic.ui.launch", return_value=0) as launch):
+            self.assertEqual(main(), 1)
+            launch.assert_not_called()
+            self.assertEqual(main(), 0)
+            self.assertEqual(os.environ["SEOUL_OPEN_API_KEY"], "sample-key")
+            self.assertEqual(main(), 0)
+            self.assertEqual(prompt.call_count, 2)
 
     def test_count_parser_requires_all_unique_lanes_and_matching_hour(self):
         rows = "".join(

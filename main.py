@@ -1,5 +1,7 @@
 """VS Code와 명령행에서 공통으로 사용하는 실행 파일."""
 import argparse
+import os
+from getpass import getpass
 from pathlib import Path
 import sys
 
@@ -54,6 +56,25 @@ def parser():
     return result
 
 
+def prompt_topis_key():
+    try:
+        from tkinter import TclError, Tk, simpledialog
+    except ImportError:
+        return getpass("서울 열린데이터광장 인증키: ") if sys.stdin.isatty() else None
+
+    try:
+        root = Tk()
+    except TclError:
+        return getpass("서울 열린데이터광장 인증키: ") if sys.stdin.isatty() else None
+    try:
+        root.withdraw()
+        return simpledialog.askstring(
+            "TOPIS 인증키", "서울 열린데이터광장에서 발급받은 인증키를 입력하세요.",
+            parent=root, show="*")
+    finally:
+        root.destroy()
+
+
 def main():
     args = parser().parse_args()
     try:
@@ -94,6 +115,13 @@ def main():
         else:
             if args.headless and not args.screenshot:
                 raise ValueError("--headless는 --screenshot과 같이 사용합니다.")
+            needs_live = (args.adaptive or args.mode == "live") and not args.recording and not args.screenshot
+            if needs_live and not os.environ.get("SEOUL_OPEN_API_KEY", "").strip():
+                key = (prompt_topis_key() or "").strip()
+                if not key:
+                    print("TOPIS 인증키 입력이 취소되었거나 비어 있습니다.", file=sys.stderr)
+                    return 1
+                os.environ["SEOUL_OPEN_API_KEY"] = key
             from traffic.ui import launch
             return launch(args, site)
         for name, metrics in report["summary"].items():

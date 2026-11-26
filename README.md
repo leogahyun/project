@@ -145,7 +145,7 @@ Python과 Pygame만 설치해 실행할 수 있습니다. `assets/OFL.txt`는 �
 
 ### 실시간 속도와 최신 교통량으로 상시 운영하기
 
-PowerShell에서 TOPIS 인증키를 설정한 뒤 실행합니다.
+PowerShell에서 실행합니다. 키를 미리 설정하지 않았다면 시작할 때 뜨는 입력창에 넣습니다. 키는 실행 중에만 사용합니다.
 
 ```powershell
 py -3.12 main.py --mode live --adaptive
